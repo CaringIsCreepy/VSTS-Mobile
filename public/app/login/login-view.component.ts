@@ -14,15 +14,15 @@ import {MdButton} from '@angular2-material/button';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 
 @Component({
-    selector: 'login',
-    templateUrl: '/app/login/login-view.html',
-    directives: [
-      MdSpinner,
-      MD_CARD_DIRECTIVES,
-      MD_INPUT_DIRECTIVES,
-      MdButton,
-      MD_LIST_DIRECTIVES
-    ]
+  selector: 'login',
+  templateUrl: '/app/login/login-view.html',
+  directives: [
+    MdSpinner,
+    MD_CARD_DIRECTIVES,
+    MD_INPUT_DIRECTIVES,
+    MdButton,
+    MD_LIST_DIRECTIVES
+  ]
 })
 export class LoginView {
   server: string;
@@ -30,14 +30,14 @@ export class LoginView {
   showTeamProjects: boolean = false;
   showServer: boolean = false;
   showLoading: boolean = true;
-  
+
   constructor(private window: Window,
-              private router: Router, 
-              private settings: Settings,
-              private routeParams: RouteParams,
-              private login: Login,
-              private user: User,
-              private teamProjectListFactory: TeamProjectListFactory) {
+    private router: Router,
+    private settings: Settings,
+    private routeParams: RouteParams,
+    private login: Login,
+    private user: User,
+    private teamProjectListFactory: TeamProjectListFactory) {
     let authToken = this.window.localStorage.getItem("access_token");
 
     if (authToken != null && authToken != "") {
@@ -88,9 +88,9 @@ export class LoginView {
     this.user.fetch().subscribe(userObject => {
       this.showServer = true;
       this.showLoading = false;
-    }, error => {});
+    }, error => { });
   }
-  
+
   connectToServer() {
     this.showLoading = true;
     this.showServer = false;
@@ -108,7 +108,7 @@ export class LoginView {
       this.showServer = true;
     });
   }
-  
+
   selectTeamProject(project: TeamProject) {
     this.window.localStorage.setItem('project_id', project.id);
     this.router.navigate(['Home']);

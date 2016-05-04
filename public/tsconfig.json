@@ -12,6 +12,7 @@
   "exclude": [
     "node_modules",
     "@angular2-material",
-    "public/node_modules/"
+    "/public/node_modules/",
+    "@angular"
   ]
 }

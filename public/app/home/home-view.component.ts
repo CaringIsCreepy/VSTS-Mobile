@@ -16,6 +16,6 @@ import {MdSpinner} from '@angular2-material/progress-circle';
 export class HomeView {
     showLoading: boolean = true;
     constructor(private window: Window) {
-        
+
     }
 }

@@ -22,15 +22,15 @@
   },
   "homepage": "https://github.com/CaringIsCreepy/VSTS-Mobile#readme",
   "dependencies": {
-    "@angular2-material/button": "file:@angular2-material/button",
-    "@angular2-material/card": "file:@angular2-material/card",
-    "@angular2-material/checkbox": "file:@angular2-material/checkbox",
-    "@angular2-material/core": "file:@angular2-material/core",
-    "@angular2-material/input": "file:@angular2-material/input",
-    "@angular2-material/list": "file:@angular2-material/list",
-    "@angular2-material/progress-bar": "file:@angular2-material/progress-bar",
-    "@angular2-material/progress-circle": "file:@angular2-material/progress-circle",
-    "@angular2-material/radio": "file:@angular2-material/radio",
+    "@angular2-material/button": "2.0.0-alpha.4",
+    "@angular2-material/card": "2.0.0-alpha.4",
+    "@angular2-material/checkbox": "2.0.0-alpha.4",
+    "@angular2-material/core": "2.0.0-alpha.4",
+    "@angular2-material/input": "2.0.0-alpha.4",
+    "@angular2-material/list": "2.0.0-alpha.4",
+    "@angular2-material/progress-bar": "2.0.0-alpha.4",
+    "@angular2-material/progress-circle": "2.0.0-alpha.4",
+    "@angular2-material/radio": "2.0.0-alpha.4",
     "angular2": "^2.0.0-beta.17",
     "bootstrap": "^3.3.6",
     "es6-shim": "^0.35.0",
@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
-    "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
     "typings": "^0.8.1"
   }

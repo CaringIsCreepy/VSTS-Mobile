@@ -1,18 +1,20 @@
 {
-  "name": "VSTS-Mobile",
+  "name": "VSTSMobile",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
+    "gulp-typescript": "^2.13.0",
     "jade": "^1.11.0",
     "nconf": "^0.8.4",
     "request": "^2.72.0"
   },
-  "devDependencies": {},
-  "scripts": {
+  "devDependencies": {
+    "gulp": "^3.9.1"
   },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CaringIsCreepy/VSTS-Mobile.git"
