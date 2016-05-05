@@ -10,7 +10,7 @@
 			"args": [],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": "default",
-			"runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
+			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
 			],
@@ -25,7 +25,7 @@
 			"name": "Attach",
 			"type": "node",
 			"request": "attach",
-			"port": 8080,
+			"port": 80,
 			"address": "localhost",
 			"restart": false,
 			"sourceMaps": false,
