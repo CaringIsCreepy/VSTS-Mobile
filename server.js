@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.set('view engine', 'jade');
 
 app.get('/*', function(req, res) {
-    res.render('index');
+    res.sendfile('./public/index.html');
 });
 
 nconf.env().file({ file: 'config.json' });

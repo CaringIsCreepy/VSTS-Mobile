@@ -22,14 +22,11 @@ import {Settings} from './settings';
     {path:'/home', name: 'Home', component: HomeView},
 ])
 export class App {
-    showHome = false;
-    showGetStarted = false;
-    
     constructor(private login: Login,
                 private router: Router,
                 private settings: Settings) {
-        if (login.isLoggedIn()) {
-            this.showHome = true;
+        if (login.isLoggedIn()) {    
+            this.router.navigate(['Home']);
         }
         else {
             let params = new URLSearchParams(window.location.href);
@@ -39,13 +36,8 @@ export class App {
                 this.router.navigate(['LoginParam', { code: code }]);
             }
             else {
-                this.showGetStarted = true;
+                this.router.navigate(['Home']);
             }
         }
-    }
-    
-    showLogin() {
-        this.showGetStarted = false;
-        this.router.navigate(['Login']);
     }
 }

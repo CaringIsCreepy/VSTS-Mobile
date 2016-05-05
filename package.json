@@ -7,8 +7,10 @@
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-typescript": "^2.13.0",
     "jade": "^1.11.0",
+    "merge2": "^1.0.2",
     "nconf": "^0.8.4",
     "request": "^2.72.0"
   },

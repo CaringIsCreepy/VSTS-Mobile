@@ -1,8 +1,9 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {LoginView} from '../login/login-view.component';
 import {MdButton} from '@angular2-material/button';
 import {MdSpinner} from '@angular2-material/progress-circle';
+import {Login} from '../business_object/login';
 
 @Component({
     selector: "home",
@@ -15,7 +16,21 @@ import {MdSpinner} from '@angular2-material/progress-circle';
 })
 export class HomeView {
     showLoading: boolean = true;
-    constructor(private window: Window) {
-
+    showGetStarted: boolean = false;
+    
+    constructor(private window: Window,
+                private login: Login,
+                private router: Router) {
+        if (login.isLoggedIn()) {
+            this.showGetStarted = false;
+        }
+        else {
+            this.showGetStarted = true;
+            this.showLoading = false;
+        }
+    }
+    
+    showLogin() {
+        this.router.navigate(['Login']);
     }
 }

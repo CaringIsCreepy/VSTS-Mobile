@@ -68,10 +68,11 @@
            format: 'cjs',
            defaultExtension: 'js',
            main: 'list.js'
-         },
+         }
       },
     });
-    System.import('build/main')
+    
+    System.import('app/main')
       .then(null, console.error.bind(console));
   </script>
 
