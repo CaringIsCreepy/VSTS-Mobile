@@ -8,11 +8,6 @@ export class Settings {
     return this.oauthUrl;
   }
 
-  private tokenUrl: string = "https://app.vssps.visualstudio.com/oauth2/token";
-  get TokenUrl():string {
-    return this.tokenUrl;
-  }
-
   private applicationUrl: string = "http://127.0.0.1/";
   get ApplicationUrl():string {
     return this.applicationUrl;
