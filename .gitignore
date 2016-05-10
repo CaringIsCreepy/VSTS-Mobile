@@ -4,6 +4,8 @@ public/app/*.js
 public/app/*.js.map
 public/app/**/*.js
 public/app/**/*.js.map
+spec/**/*.js
+spec/**/*.js.map
 config.json
 public/build
 public/css
