@@ -19,7 +19,6 @@ gulp.task('dev', function () {
         .pipe(ts(tsProject));
 
     return merge([
-		//tsResult.js.pipe(gulp.dest('public/app')),
-        tsResult.js.pipe(gulp.dest('./'))
+        tsResult.js.pipe(gulp.dest('./public'))
 	]);
 });

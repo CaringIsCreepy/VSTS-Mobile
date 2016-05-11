@@ -32,12 +32,12 @@ export class LoginView {
   showLoading: boolean = true;
 
   constructor(private window: Window,
-    private router: Router,
-    private settings: Settings,
-    private routeParams: RouteParams,
-    private login: Login,
-    private user: User,
-    private teamProjectListFactory: TeamProjectListFactory) {
+              private router: Router,
+              private settings: Settings,
+              private routeParams: RouteParams,
+              private login: Login,
+              private user: User,
+              private teamProjectListFactory: TeamProjectListFactory) {
     let authToken = this.window.localStorage.getItem("access_token");
 
     if (authToken != null && authToken != "") {

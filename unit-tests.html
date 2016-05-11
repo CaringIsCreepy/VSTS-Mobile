@@ -16,11 +16,12 @@
   <script>
     System.config({
       packages: {
-        'spec': {defaultExtension: 'js'}
+        'public/spec': {defaultExtension: 'js'},
+        'public/app': {defaultExtension: 'js'}
       }
     });
 
-    System.import('spec/loginViewComponentSpec')
+    System.import('public/spec/loginViewComponentSpec')
       .then(window.onload)
       .catch(console.error.bind(console));
   </script>
