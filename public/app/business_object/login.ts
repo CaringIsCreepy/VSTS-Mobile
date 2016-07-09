@@ -1,8 +1,8 @@
-import {Injectable} from 'angular2/core';
-import {Http, Headers, RequestOptions} from 'angular2/http';
+import {Injectable} from '@angular/core';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import {Settings} from '../settings';
 import {Observable} from 'rxjs/Observable';
-import {Response} from 'angular2/http';
+import {Response} from '@angular/http';
 import {Subject} from 'rxjs/Subject';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class Login {
   isLoggedIn() {
     let teamProject = this.window.localStorage.getItem("project_id");
     
-    return teamProject !== null && teamProject !== "";
+    return teamProject !== null && teamProject !== "" && teamProject !== undefined;
   }
 
   getAuthToken(existingCode: string): Observable<Response> {

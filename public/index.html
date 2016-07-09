@@ -1,79 +1,47 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <base href="/">
-
+  <base href="/" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>VSTS Mobile</title>
 
-  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-
-  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
-  <script src="node_modules/rxjs/bundles/Rx.js"></script>
-  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-
-  <script src="node_modules/angular2/bundles/router.dev.js"></script>
-  <script src="node_modules/angular2/bundles/http.dev.js"></script>
+  <script src="/node_modules/core-js/client/shim.min.js"></script>
+  <script src="/node_modules/zone.js/dist/zone.js"></script>
+  <script src="/node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="/node_modules/systemjs/dist/system.src.js"></script>
+  <script src="systemjs.config.js"></script>
 
   <!--<script type="text/javascript" src="js/index.js"></script>-->
   <!-- <script type="text/javascript" src="cordova.js"></script> -->
   
   <!--<link rel="stylesheet" type="text/css" href="css/main.css">-->
 
-  <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <!--<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>-->
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <script src="systemjs.config.js"></script>
   <script>
-    System.config({
-      packages: {
-        app: {
-          format: 'register',
-          defaultExtension: 'js'
-        },
-        '@angular2-material/progress-circle': {
-          format: 'cjs',
-          defaultExtension: 'js',
-          main: 'progress-circle.js'
-        },
-        '@angular2-material/input': {
-          format: 'cjs',
-          defaultExtension: 'js',
-          main: 'input.js'
-        },
-        '@angular2-material/card': {
-          format: 'cjs',
-          defaultExtension: 'js',
-          main: 'card.js'
-        },
-        '@angular2-material/core': {
-           format: 'cjs',
-           defaultExtension: 'js',
-           main: 'core.js'
-         },
-         '@angular2-material/button': {
-           format: 'cjs',
-           defaultExtension: 'js',
-           main: 'button.js'
-         },
-         '@angular2-material/list': {
-           format: 'cjs',
-           defaultExtension: 'js',
-           main: 'list.js'
-         }
-      },
-    });
+    // System.config({
+    //   packages: {
+    //     app: {
+    //       format: 'register',
+    //       defaultExtension: 'js'
+    //     },
+    //     '@angular2-material/progress-circle': {
+    //       format: 'cjs',
+    //       defaultExtension: 'js',
+    //       main: 'progress-circle.js'
+    //     },
+    //   },
+    // });
     
-    System.import('app/main')
-      .then(null, console.error.bind(console));
+    System.import('app/main').then(null, console.error.bind(console));
   </script>
 
 </head>

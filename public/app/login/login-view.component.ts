@@ -1,52 +1,54 @@
-import {Component} from 'angular2/core';
-import {Router, RouteParams} from 'angular2/router';
-import {Http, Headers, RequestOptions} from 'angular2/http';
+import {Component, Input} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import {Settings} from '../settings';
 import {Login} from '../business_object/login';
 import {User} from '../business_object/user';
 import {TeamProject} from '../business_object/team-project';
 import {TeamProjectList} from '../business_object/team-project-list';
 import {TeamProjectListFactory} from '../factory/team-project-list-factory';
-import {MdSpinner} from '@angular2-material/progress-circle';
-import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 import {MdButton} from '@angular2-material/button';
-import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
+import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input';
+import {FORM_DIRECTIVES} from '@angular/forms';
 
 @Component({
   selector: 'login',
   templateUrl: '/app/login/login-view.html',
-  directives: [
-    MdSpinner,
-    MD_CARD_DIRECTIVES,
-    MD_INPUT_DIRECTIVES,
-    MdButton,
-    MD_LIST_DIRECTIVES
-  ]
+    directives: [
+        MD_INPUT_DIRECTIVES,
+        FORM_DIRECTIVES,
+        MdButton
+    ]
 })
 export class LoginView {
-  server: string;
   projectList: TeamProjectList;
   showTeamProjects: boolean = false;
   showServer: boolean = false;
   showLoading: boolean = true;
+  code: string;
+  @Input() server: string; 
 
   constructor(private window: Window,
               private router: Router,
               private settings: Settings,
-              private routeParams: RouteParams,
+              private route: ActivatedRoute,
               private login: Login,
               private user: User,
               private teamProjectListFactory: TeamProjectListFactory) {
+  }
+
+  ngOnInit() {
+    this.code  = this.route.snapshot.params['code'];
+
     let authToken = this.window.localStorage.getItem("access_token");
 
-    if (authToken != null && authToken != "") {
+    if (authToken !== null && authToken !== "" && authToken !== undefined) {
       this.getProfile();
     }
     else {
       let existingCode = this.window.localStorage.getItem("auth_code");
 
-      if (existingCode === null || existingCode === "") {
+      if (existingCode === null || existingCode === "" || existingCode === undefined) {
         this.resumeWorkflow();
       }
       else {
@@ -56,14 +58,12 @@ export class LoginView {
   }
 
   resumeWorkflow() {
-    let code = this.routeParams.get('code');
-
-    if (code === null || code === "") {
+    if (this.code === null || this.code === "" || this.code === undefined) {
       this.window.location.href = this.settings.oAuthUrl;
     }
     else {
-      this.window.localStorage.setItem("auth_code", code);
-      this.getAuthToken(code);
+      this.window.localStorage.setItem("auth_code", this.code);
+      this.getAuthToken(this.code);
     }
   }
 
@@ -111,6 +111,6 @@ export class LoginView {
 
   selectTeamProject(project: TeamProject) {
     this.window.localStorage.setItem('project_id', project.id);
-    this.router.navigate(['Home']);
+    this.router.navigate(['home']);
   }
 }

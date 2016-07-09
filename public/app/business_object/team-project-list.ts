@@ -12,7 +12,7 @@ export class TeamProjectList extends Array<TeamProject> {
     }
     
     fetch(): Observable<TeamProjectList> {
-        let subject = new Subject();
+        let subject = new Subject<TeamProjectList>();
         let server = this.window.localStorage.getItem("server");
         
         let url = server + "/DefaultCollection/_apis/projects?api-version=1.0";

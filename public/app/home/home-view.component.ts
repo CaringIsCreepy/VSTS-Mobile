@@ -1,17 +1,17 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {Component} from '@angular/core';
+import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {LoginView} from '../login/login-view.component';
-import {MdButton} from '@angular2-material/button';
-import {MdSpinner} from '@angular2-material/progress-circle';
 import {Login} from '../business_object/login';
+import {MdSpinner} from '@angular2-material/progress-circle';
+import {MdButton} from '@angular2-material/button';
 
 @Component({
     selector: "home",
     templateUrl: "/app/home/home-view.html",
     directives: [
-        MdButton,
+        ROUTER_DIRECTIVES,
         MdSpinner,
-        ROUTER_DIRECTIVES
+        MdButton
     ]
 })
 export class HomeView {
@@ -31,6 +31,6 @@ export class HomeView {
     }
     
     showLogin() {
-        this.router.navigate(['Login']);
+        this.router.navigate(['login']);
     }
 }

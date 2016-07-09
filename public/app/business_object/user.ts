@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {OAuthHttp} from '../core/oauth-http';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';

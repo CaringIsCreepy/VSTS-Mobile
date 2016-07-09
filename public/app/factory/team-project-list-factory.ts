@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {OAuthHttp} from '../core/oauth-http';
 import {TeamProjectList} from '../business_object/team-project-list';
 import {TeamProjectFactory} from '../factory/team-project-factory';
