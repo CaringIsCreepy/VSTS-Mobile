@@ -10,12 +10,16 @@ import {TeamProjectListFactory} from '../factory/team-project-list-factory';
 import {MdButton} from '@angular2-material/button';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input';
 import {FORM_DIRECTIVES} from '@angular/forms';
+import {MdSpinner} from '@angular2-material/progress-circle';
+import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 
 @Component({
   selector: 'login',
   templateUrl: '/app/login/login-view.html',
     directives: [
         MD_INPUT_DIRECTIVES,
+        MD_LIST_DIRECTIVES,
+        MdSpinner,
         FORM_DIRECTIVES,
         MdButton
     ]
