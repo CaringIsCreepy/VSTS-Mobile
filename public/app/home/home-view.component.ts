@@ -4,6 +4,7 @@ import {LoginView} from '../login/login-view.component';
 import {Login} from '../business_object/login';
 import {MdSpinner} from '@angular2-material/progress-circle';
 import {MdButton} from '@angular2-material/button';
+import {User} from '../business_object/user';
 
 @Component({
     selector: "home",
@@ -17,12 +18,20 @@ import {MdButton} from '@angular2-material/button';
 export class HomeView {
     showLoading: boolean = true;
     showGetStarted: boolean = false;
+    loggedInUser: User;
     
     constructor(private window: Window,
                 private login: Login,
-                private router: Router) {
+                private router: Router,
+                private user: User) {
         if (login.isLoggedIn()) {
             this.showGetStarted = false;
+
+            this.user.fetch().subscribe(userResult => {
+                this.loggedInUser = userResult;
+                
+                this.showLoading = false;
+            });
         }
         else {
             this.showGetStarted = true;

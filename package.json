@@ -19,6 +19,7 @@
   "devDependencies": {
     "codelyzer": "0.0.19",
     "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
     "tslint": "^3.9.0",
     "typescript": "^1.8.10"
   },
