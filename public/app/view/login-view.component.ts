@@ -15,7 +15,7 @@ import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 
 @Component({
   selector: 'login',
-  templateUrl: '/app/login/login-view.html',
+  templateUrl: '/app/view/login-view.html',
     directives: [
         MD_INPUT_DIRECTIVES,
         MD_LIST_DIRECTIVES,

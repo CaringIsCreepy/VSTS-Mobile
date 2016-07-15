@@ -1,6 +1,6 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-import { LoginView } from './login/login-view.component';
-import { HomeView } from './home/home-view.component';
+import { LoginView } from './view/login-view.component';
+import { HomeView } from './view/home-view.component';
 
 const routes: RouterConfig = [
   {

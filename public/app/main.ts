@@ -1,6 +1,6 @@
 import {bootstrap} from '@angular/platform-browser-dynamic/';
 import {App} from './app';
-import {HomeView} from './home/home-view.component';
+import {HomeView} from './view/home-view.component';
 import {HTTP_PROVIDERS} from '@angular/http';
 import {provide} from '@angular/core' ;
 import {Settings} from './settings';

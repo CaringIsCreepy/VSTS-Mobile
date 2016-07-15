@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {URLSearchParams} from '@angular/http';
-import {LoginView} from './login/login-view.component';
-import {HomeView} from './home/home-view.component';
+import {LoginView} from './view/login-view.component';
+import {HomeView} from './view/home-view.component';
 import {Login} from './business_object/login';
 import {Settings} from './settings';
 

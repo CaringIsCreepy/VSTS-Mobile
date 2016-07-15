@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router} from '@angular/router';
-import {LoginView} from '../login/login-view.component';
+import {LoginView} from '../view/login-view.component';
 import {Login} from '../business_object/login';
 import {MdSpinner} from '@angular2-material/progress-circle';
 import {MdButton} from '@angular2-material/button';
@@ -8,7 +8,7 @@ import {User} from '../business_object/user';
 
 @Component({
     selector: "home",
-    templateUrl: "/app/home/home-view.html",
+    templateUrl: "/app/view/home-view.html",
     directives: [
         ROUTER_DIRECTIVES,
         MdSpinner,

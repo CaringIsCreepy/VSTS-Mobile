@@ -1,4 +1,4 @@
-import {LoginView} from '../app/login/login-view.component';
+import {LoginView} from '../app/view/login-view.component';
 
 describe("login.component", function () {
     beforeEachProviders(() => [LoginView]);
