@@ -29,7 +29,7 @@ export class OAuthHttp {
     this.http.get(url, options).subscribe(res => {
       responseSubject.next(res);
     }, error => {
-      if (error.status === 200 && !reattempt) {
+      if ((error.status === 0 || error.status === 200) && !reattempt) {
         this.refreshToken(url, responseSubject);
       }
       else {
