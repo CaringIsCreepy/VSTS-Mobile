@@ -26,12 +26,7 @@ export class HomeView {
                 private user: User) {
         if (login.isLoggedIn()) {
             this.showGetStarted = false;
-
-            this.user.fetch().subscribe(userResult => {
-                this.loggedInUser = userResult;
-                
-                this.showLoading = false;
-            });
+            this.showLoading = false;
         }
         else {
             this.showGetStarted = true;

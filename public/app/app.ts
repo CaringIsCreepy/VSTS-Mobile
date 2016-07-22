@@ -17,10 +17,14 @@ import {Settings} from './settings';
 })
 
 export class App {
+    private isLoggedIn: boolean;
+
     constructor(private login: Login,
                 private router: Router,
                 private settings: Settings) {
-        if (login.isLoggedIn()) {    
+        this.isLoggedIn = login.isLoggedIn()
+        
+        if (this.isLoggedIn) {    
             this.router.navigate(['home']);
         }
         else {

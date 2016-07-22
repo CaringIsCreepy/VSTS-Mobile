@@ -3,10 +3,7 @@
     <button md-raised-button color="primary" style="width:100%" (click)="showLogin()">Get Started</button>
 </div>
 <div class="col-xs-12 col-md-6 col-md-offset-3" *ngIf="!showGetStarted">
-  <div style="margin-left:auto; margin-right:auto;" *ngIf="showLoading">
+  <div style="margin-left:auto; margin-right:auto; width:150px;" *ngIf="showLoading">
     <md-spinner class="app-spinner"></md-spinner>
-  </div>
-  <div style="margin-left:auto; margin-right:auto;" *ngIf="!showLoading">
-    <span>{{loggedInUser.displayName}}</span>
   </div>
 </div>

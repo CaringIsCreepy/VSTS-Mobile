@@ -1,1 +1,19 @@
 <router-outlet></router-outlet>
+<div *ngIf="isLoggedIn">
+    <div class="col-xs-3" style="text-align:center;">
+        <div class="glyphicon glyphicon-home"></div>
+        Home
+    </div>
+    <div class="col-xs-3" style="text-align:center;">
+        <span class="glyphicon glyphicon-tasks"></span>
+        Work Items
+    </div>
+    <div class="col-xs-3" style="text-align:center;">
+        <span class="glyphicon glyphicon-oil"></span>
+        Builds
+    </div>
+    <div class="col-xs-3" style="text-align:center;">
+        <span class="glyphicon glyphicon-cog"></span>
+        Settings
+    </div>
+</div>
