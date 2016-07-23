@@ -115,6 +115,7 @@ export class LoginView {
 
   selectTeamProject(project: TeamProject) {
     this.window.localStorage.setItem('project_id', project.id);
+    this.window.localStorage.setItem('project_name', project.name);
     this.router.navigate(['home']);
   }
 }

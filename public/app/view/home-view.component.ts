@@ -5,6 +5,9 @@ import {Login} from '../business_object/login';
 import {MdSpinner} from '@angular2-material/progress-circle';
 import {MdButton} from '@angular2-material/button';
 import {User} from '../business_object/user';
+import {BuildList} from '../business_object/build-list';
+import {Build} from '../business_object/build';
+import {BuildTile} from '../tile/build-tile.component';
 
 @Component({
     selector: "home",
@@ -12,21 +15,29 @@ import {User} from '../business_object/user';
     directives: [
         ROUTER_DIRECTIVES,
         MdSpinner,
-        MdButton
+        MdButton,
+        BuildTile
     ]
 })
 export class HomeView {
     showLoading: boolean = true;
     showGetStarted: boolean = false;
     loggedInUser: User;
+    topBuildList: BuildList;
+    topBuild: Build;
     
     constructor(private window: Window,
                 private login: Login,
                 private router: Router,
+                private buildList : BuildList,
                 private user: User) {
         if (login.isLoggedIn()) {
             this.showGetStarted = false;
-            this.showLoading = false;
+            this.buildList.fetch().subscribe(buildList => {
+                this.topBuildList = buildList;
+                this.topBuild = this.topBuildList[0];
+                this.showLoading = false;
+            });
         }
         else {
             this.showGetStarted = true;

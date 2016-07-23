@@ -11,6 +11,8 @@ import {TeamProjectFactory} from './factory/team-project-factory';
 import {TeamProject} from './business_object/team-project';
 import {OAuthHttp} from './core/oauth-http';
 import {APP_ROUTER_PROVIDERS} from './app.routes';
+import {BuildList} from './business_object/build-list';
+import {BuildFactory} from './factory/build-factory';
 
 bootstrap(App, [
   HTTP_PROVIDERS,
@@ -21,5 +23,7 @@ bootstrap(App, [
   TeamProjectListFactory,
   TeamProjectFactory,
   OAuthHttp,
+  BuildList,
+  BuildFactory,
   provide(Window, {useValue: window})
 ]);
