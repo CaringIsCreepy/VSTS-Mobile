@@ -8,6 +8,7 @@ import {User} from '../business_object/user';
 import {BuildList} from '../business_object/build-list';
 import {Build} from '../business_object/build';
 import {BuildTile} from '../tile/build-tile.component';
+import {QueryList} from '../business_object/query-list';
 
 @Component({
     selector: "home",
@@ -30,14 +31,18 @@ export class HomeView {
                 private login: Login,
                 private router: Router,
                 private buildList : BuildList,
+                private queryList : QueryList,
                 private user: User) {
         if (login.isLoggedIn()) {
             this.showGetStarted = false;
-            this.buildList.fetch().subscribe(buildList => {
-                this.topBuildList = buildList;
-                this.topBuild = this.topBuildList[0];
-                this.showLoading = false;
-            });
+
+            var pins = this.window.localStorage.getItem('pinnedItems');
+            if (pins !== '' && pins !== null) {
+                
+            }
+            else {
+                this.loadBoilerPlateScreen();
+            }
         }
         else {
             this.showGetStarted = true;
@@ -47,5 +52,17 @@ export class HomeView {
     
     showLogin() {
         this.router.navigate(['login']);
+    }
+
+    loadBoilerPlateScreen() {
+        this.buildList.fetch().subscribe(buildList => {
+            this.topBuildList = buildList;
+            this.topBuild = this.topBuildList[0];
+            this.showLoading = false;
+        });
+
+        this.queryList.fetch().subscribe(queryList => {
+
+        });
     }
 }

@@ -13,6 +13,7 @@ import {OAuthHttp} from './core/oauth-http';
 import {APP_ROUTER_PROVIDERS} from './app.routes';
 import {BuildList} from './business_object/build-list';
 import {BuildFactory} from './factory/build-factory';
+import {QueryList} from './business_object/query-list';
 
 bootstrap(App, [
   HTTP_PROVIDERS,
@@ -25,5 +26,6 @@ bootstrap(App, [
   OAuthHttp,
   BuildList,
   BuildFactory,
+  QueryList,
   provide(Window, {useValue: window})
 ]);

@@ -32,6 +32,7 @@ export class BuildList extends Array<Build> {
                 build.status = buildList.value[i].status;
                 build.result = buildList.value[i].result;
                 build.finishTime = buildList.value[i].finishTime;
+                build.reason = buildList.value[i].reason;
 
                 this.push(build);
             }

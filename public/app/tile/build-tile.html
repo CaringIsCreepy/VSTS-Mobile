@@ -1,3 +1,14 @@
-<div *ngIf="build != undefined">
-    {{build.definition.name}}
+<div *ngIf="build != undefined" class='col-xs-12 col-sm-4'>
+    <div *ngIf="build.status !== 'completed'">
+        <span class="glyphicon glyphicon-time" style="color:gray;"></span>
+        <span *ngIf="build.status === 'inProgress'" style="font-weight:600;">IN PROGRESS</span>
+        <span *ngIf="build.status === 'notStarted'" style="font-weight:600;">NOT STARTED</span>
+        <span *ngIf="build.status !== 'notStarted' && build.status !== 'inProgress'" style="font-weight:600;">{{build.status.toUpperCase()}}</span>
+    </div>
+    <div *ngIf="build.status === 'completed'">
+        <span *ngIf="build.result === 'succeeded'" class="glyphicon glyphicon-ok" style="color:green;"></span>
+        <span *ngIf="build.result === 'failed'" class="glyphicon glyphicon-remove" style="color:green;"></span>
+        <span style="font-weight:600;">{{build.result.toUpperCase()}}</span>
+    </div>
+    <span>{{build.definition.name}}</span>
 </div>

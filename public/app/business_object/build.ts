@@ -5,4 +5,5 @@ export class Build {
     status: string;
     result: string;
     finishTime: Date;
+    reason: string;
 }
