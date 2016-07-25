@@ -11,7 +11,7 @@ export class QueryList extends Array<Query> {
         super();
     }
 
-    fetch() : Observable<QueryList> {
+    fetchListAsFlat() : Observable<QueryList> {
         var subject = new Subject<QueryList>();
 
         var server = this.window.localStorage.getItem('server');
@@ -21,13 +21,28 @@ export class QueryList extends Array<Query> {
         this.oAuthHttp.get(url).subscribe(res => {
             let queryList = res.json();
 
-            for (var i = 0; i < queryList.value.length; i++) {
-                
-                var query = new Query(this.oAuthHttp);;
+            queryList.value.forEach(queryJson => {
+                if (queryJson.isFolder) {
+                    if (queryJson.hasChildren) {
+                        queryJson.children.forEach(childQuery => {
+                            var query = new Query(this.oAuthHttp);
 
-                this.push(query);
-            }
-            
+                            query.populate(childQuery);
+
+                            this.push(query);
+                        });
+                    }
+                }
+                else {
+                    var query = new Query(this.oAuthHttp);
+
+                    query.populate(queryJson);
+
+                    this.push(query);
+                }
+            });
+
+            subject.next(this);
         });
 
         return subject.asObservable();

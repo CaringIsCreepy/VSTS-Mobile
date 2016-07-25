@@ -9,6 +9,7 @@ import {BuildList} from '../business_object/build-list';
 import {Build} from '../business_object/build';
 import {BuildTile} from '../tile/build-tile.component';
 import {QueryList} from '../business_object/query-list';
+import {Query} from '../business_object/query';
 
 @Component({
     selector: "home",
@@ -26,6 +27,7 @@ export class HomeView {
     loggedInUser: User;
     topBuildList: BuildList;
     topBuild: Build;
+    topQuery: Query;
     
     constructor(private window: Window,
                 private login: Login,
@@ -61,8 +63,18 @@ export class HomeView {
             this.showLoading = false;
         });
 
-        this.queryList.fetch().subscribe(queryList => {
+        this.queryList.fetchListAsFlat().subscribe(queryList => {
+            if (queryList.length > 0) {
+                queryList.forEach(query => {
+                    if (query.name === 'My Tasks' || query.name === 'My Work Items' || query.name === 'Assigned to me') {
+                        this.topQuery = query;
+                    }
+                });
 
+                if (this.topQuery === undefined) {
+                    this.topQuery = queryList[0];
+                }
+            }
         });
     }
 }
