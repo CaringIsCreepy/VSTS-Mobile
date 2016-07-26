@@ -14,6 +14,7 @@ import {APP_ROUTER_PROVIDERS} from './app.routes';
 import {BuildList} from './business_object/build-list';
 import {BuildFactory} from './factory/build-factory';
 import {QueryList} from './business_object/query-list';
+import {WorkItemList} from './business_object/work-item-list';
 
 bootstrap(App, [
   HTTP_PROVIDERS,
@@ -27,5 +28,6 @@ bootstrap(App, [
   BuildList,
   BuildFactory,
   QueryList,
+  WorkItemList,
   provide(Window, {useValue: window})
 ]);

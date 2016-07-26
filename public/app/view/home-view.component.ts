@@ -10,6 +10,7 @@ import {Build} from '../business_object/build';
 import {BuildTile} from '../tile/build-tile.component';
 import {QueryList} from '../business_object/query-list';
 import {Query} from '../business_object/query';
+import {QueryTile} from '../tile/query-tile.component';
 
 @Component({
     selector: "home",
@@ -18,7 +19,8 @@ import {Query} from '../business_object/query';
         ROUTER_DIRECTIVES,
         MdSpinner,
         MdButton,
-        BuildTile
+        BuildTile,
+        QueryTile
     ]
 })
 export class HomeView {
