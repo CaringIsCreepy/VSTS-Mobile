@@ -8,7 +8,7 @@ import { OAuthHttp } from '../core/oauth-http';
 @Injectable()
 export class WorkItemList extends Array<WorkItem> {
     constructor(private oAuthHttp: OAuthHttp,
-        private window: Window) {
+                private window: Window) {
         super();
     }
 
@@ -27,9 +27,9 @@ export class WorkItemList extends Array<WorkItem> {
                 idList.push(workItemJson.id);
             });
 
-            let queryUrl = server + '/DefaultCollection/_apis/wit/WorkItems?ids=' + idList.join() + '&fields=System.Id,System.WorkItemType,System.Title,System.AssignedTo,System.State&api-version=1.0';
+            let workItemUrl = server + '/DefaultCollection/_apis/wit/WorkItems?ids=' + idList.join() + '&fields=System.Id,System.WorkItemType,System.Title,System.AssignedTo,System.State&api-version=1.0';
 
-            this.oAuthHttp.get(queryUrl).subscribe(res => {
+            this.oAuthHttp.get(workItemUrl).subscribe(res => {
                 var result = res.json();
 
                 result.value.forEach(workItemJson => {
