@@ -12,8 +12,15 @@ export class WorkItem {
     }
 
     private populateFields(fieldsJson: any) {
-        if ('System.Title'in fieldsJson) {
-            this.title = fieldsJson['System.Title'];
+        this.title = this.getField<string>(fieldsJson, 'System.Title');
+        this.state = this.getField<string>(fieldsJson, 'System.State');
+    }
+
+    private getField<T>(fieldsJson, field) : T {
+        if (field in fieldsJson) {
+            return fieldsJson[field];
         }
+
+        return null;
     }
 }

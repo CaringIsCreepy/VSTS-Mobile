@@ -17,18 +17,29 @@ export class WorkItemList extends Array<WorkItem> {
 
         var server = this.window.localStorage.getItem('server');
         let teamProject = this.window.localStorage.getItem('project_name');
-        let url = server + '/DefaultCollection/' + teamProject + '/_apis/wit/wiql/' + query.id + '?fields=System.Id,System.Title,System.State&api-version=1.0';
+        let queryUrl = server + '/DefaultCollection/' + teamProject + '/_apis/wit/wiql/' + query.id + '?api-version=1.0';
 
-        this.oAuthHttp.get(url).subscribe(res => {
+        this.oAuthHttp.get(queryUrl).subscribe(res => {
             var result = res.json();
+            var idList = new Array<number>();
 
             result.workItems.forEach(workItemJson => {
-                var workItem = new WorkItem();
-                workItem.populate(workItemJson);
-                this.push(workItem);
+                idList.push(workItemJson.id);
             });
 
-            subject.next(this);
+            let queryUrl = server + '/DefaultCollection/_apis/wit/WorkItems?ids=' + idList.join() + '&fields=System.Id,System.WorkItemType,System.Title,System.AssignedTo,System.State&api-version=1.0';
+
+            this.oAuthHttp.get(queryUrl).subscribe(res => {
+                var result = res.json();
+
+                result.value.forEach(workItemJson => {
+                    var workItem = new WorkItem();
+                    workItem.populate(workItemJson);
+                    this.push(workItem);
+                });
+
+                subject.next(this);
+            });
         });
 
         return subject.asObservable();

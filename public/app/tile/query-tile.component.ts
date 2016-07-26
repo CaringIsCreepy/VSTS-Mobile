@@ -24,7 +24,7 @@ export class QueryTile {
 
     populateWorkItemInfo() {
         this.workItemList.fetch(this.query).subscribe(workItemList => {
-            alert(workItemList);
+            
         });
     }
 }
