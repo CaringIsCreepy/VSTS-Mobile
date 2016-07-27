@@ -1,19 +1,19 @@
-<router-outlet class='col-xs-12'></router-outlet>
-<div *ngIf="isLoggedIn" class="col-xs-12">
+<div style="oveflow:auto;"><router-outlet></router-outlet></div>
+<div *ngIf="isLoggedIn" class="col-xs-12" style="height:50px;">
     <div class="col-xs-3" style="text-align:center;">
-        <div class="glyphicon glyphicon-home"></div>
-        Home
+        <div class="glyphicon glyphicon-home menu-icon"></div>
+        <div>Home</div>
     </div>
     <div class="col-xs-3" style="text-align:center;">
-        <span class="glyphicon glyphicon-tasks"></span>
-        Work Items
+        <div class="glyphicon glyphicon-tasks menu-icon"></div>
+        <div>Work Items</div>
     </div>
     <div class="col-xs-3" style="text-align:center;">
-        <span class="glyphicon glyphicon-oil"></span>
-        Builds
+        <div class="glyphicon glyphicon-th-large menu-icon"></div>
+        <div>Builds</div>
     </div>
     <div class="col-xs-3" style="text-align:center;">
-        <span class="glyphicon glyphicon-cog"></span>
-        Settings
+        <div class="glyphicon glyphicon-cog menu-icon"></div>
+        <div>Settings</div>
     </div>
 </div>

@@ -1,4 +1,8 @@
-<div *ngIf="query != undefined" class='col-xs-12 col-sm-4'>
-    <span>{{query.name}}</span>
-    <span>{{workItemSummary}}</span>
+<div *ngIf="query != undefined" class='col-xs-12 col-sm-4 tile'>
+    <div style="float:right; text-align:center; margin-top:-5px;">
+        <div style="color:#00f2ff; font-size:25px;">{{workItemCount}}</div>
+        <div style="color:b591c9;">ITEMS</div>
+    </div>
+    <div style="color:white; font-weight:600; font-size:18px;">{{query.name}}</div>
+    <div>{{workItemSummary}}</div>
 </div>

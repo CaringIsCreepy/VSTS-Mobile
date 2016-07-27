@@ -10,6 +10,7 @@ export class QueryTile {
     @Input()
     query: Query;
     workItemSummary: string = '';
+    workItemCount: number = 0;
 
     constructor(private workItemList: WorkItemList) {}
 
@@ -45,6 +46,8 @@ export class QueryTile {
                 if (runningStateCount != stateCount) {
                     this.workItemSummary += ', ';
                 }
+
+                this.workItemCount += stateList[stateItem];
             }
         });
     }

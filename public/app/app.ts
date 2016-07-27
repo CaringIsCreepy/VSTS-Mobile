@@ -32,7 +32,6 @@ export class App {
             let code = params.get(this.settings.ApplicationUrl + "?code");
             
             if (code !== null && code !== "" && code !== undefined) {
-                //this.router.navigate(['loginParam', { code: code }]);
                 this.router.navigate(['/loginParam', code]);
             }
             else {
