@@ -1,6 +1,8 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
 import { LoginView } from './view/login-view.component';
 import { HomeView } from './view/home-view.component';
+import { BuildView } from './view/build-view.component';
+import { WorkItemHomeView } from './view/work-item-home-view.component';
 
 const routes: RouterConfig = [
   {
@@ -14,6 +16,14 @@ const routes: RouterConfig = [
   {
     path: 'home',
     component: HomeView
+  },
+  {
+    path: 'build',
+    component: BuildView
+  },
+  {
+    path: 'workItemHome',
+    component: WorkItemHomeView
   }
 ];
 

@@ -1,14 +1,14 @@
 <div style="oveflow:auto;"><router-outlet></router-outlet></div>
 <div *ngIf="isLoggedIn" class="col-xs-12" style="height:50px;">
-    <div class="col-xs-3" style="text-align:center;">
+    <div class="col-xs-3" style="text-align:center;" [routerLink]="['/home']">
         <div class="glyphicon glyphicon-home menu-icon"></div>
         <div>Home</div>
     </div>
-    <div class="col-xs-3" style="text-align:center;">
+    <div class="col-xs-3" style="text-align:center;" [routerLink]="['/workItemHome']">
         <div class="glyphicon glyphicon-tasks menu-icon"></div>
         <div>Work Items</div>
     </div>
-    <div class="col-xs-3" style="text-align:center;">
+    <div class="col-xs-3" style="text-align:center;" [routerLink]="['/build']">
         <div class="glyphicon glyphicon-th-large menu-icon"></div>
         <div>Builds</div>
     </div>
