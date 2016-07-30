@@ -11,6 +11,7 @@ import {BuildTile} from '../tile/build-tile.component';
 import {QueryList} from '../business_object/query-list';
 import {Query} from '../business_object/query';
 import {QueryTile} from '../tile/query-tile.component';
+import {BuildService} from '../service/build-service';
 
 @Component({
     selector: "home",
@@ -34,7 +35,7 @@ export class HomeView {
     constructor(private window: Window,
                 private login: Login,
                 private router: Router,
-                private buildList : BuildList,
+                private buildService : BuildService,
                 private queryList : QueryList,
                 private user: User) {
         if (login.isLoggedIn()) {
@@ -59,7 +60,7 @@ export class HomeView {
     }
 
     loadBoilerPlateScreen() {
-        this.buildList.fetch().subscribe(buildList => {
+        this.buildService.getList().subscribe(buildList => {
             this.topBuildList = buildList;
             this.topBuild = this.topBuildList[0];
             this.showLoading = false;

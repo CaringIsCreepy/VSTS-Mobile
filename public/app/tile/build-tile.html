@@ -4,9 +4,9 @@
     </div>
     <div *ngIf="build.status !== 'completed'">
         <span class="glyphicon glyphicon-time" style="color:white;"></span>
-        <span *ngIf="build.status === 'inProgress'" style="font-weight:600;">IN PROGRESS</span>
-        <span *ngIf="build.status === 'notStarted'" style="font-weight:600;">NOT STARTED</span>
-        <span *ngIf="build.status !== 'notStarted' && build.status !== 'inProgress'" style="font-weight:600;">{{build.status.toUpperCase()}}</span>
+        <span *ngIf="build.status === 'inProgress'" style="font-weight:600;color:white;">IN PROGRESS</span>
+        <span *ngIf="build.status === 'notStarted'" style="font-weight:600;color:white;">NOT STARTED</span>
+        <span *ngIf="build.status !== 'notStarted' && build.status !== 'inProgress'" style="font-weight:600;color:white;">{{build.status.toUpperCase()}}</span>
     </div>
     <div *ngIf="build.status === 'completed'">
         <span *ngIf="build.result === 'succeeded'" class="glyphicon glyphicon-ok" style="color:#00f2ff;"></span>
@@ -14,5 +14,4 @@
         <span style="font-weight:600; color:#00f2ff;">{{build.result.toUpperCase()}}</span>
     </div>
     Build Definition: <span style="color:white;">{{build.definition.name}}</span>
-
 </div>

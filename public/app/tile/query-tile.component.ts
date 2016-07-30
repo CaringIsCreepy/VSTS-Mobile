@@ -1,18 +1,19 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import {Query} from '../business_object/query';
 import {WorkItemList} from '../business_object/work-item-list';
+import {WorkItemService} from '../service/work-item-service';
 
 @Component({
     selector: "query-tile",
     templateUrl: "/app/tile/query-tile.html"
 })
-export class QueryTile {
+export class QueryTile implements OnChanges{
     @Input()
     query: Query;
     workItemSummary: string = '';
     workItemCount: number = 0;
 
-    constructor(private workItemList: WorkItemList) {}
+    constructor(private workItemService: WorkItemService) {}
 
     ngOnChanges(changes: { [propertyName: string]: any }) {
         for (let propName in changes) {
@@ -25,7 +26,7 @@ export class QueryTile {
     }
 
     populateWorkItemInfo() {
-        this.workItemList.fetch(this.query).subscribe(workItemList => {
+        this.workItemService.getList(this.query).subscribe(workItemList => {
             let stateList = []; 
             let stateCount: number = 0;
             let runningStateCount: number = 0;

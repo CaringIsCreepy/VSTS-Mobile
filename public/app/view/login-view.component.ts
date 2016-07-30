@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {Settings} from '../settings';
@@ -6,7 +6,7 @@ import {Login} from '../business_object/login';
 import {User} from '../business_object/user';
 import {TeamProject} from '../business_object/team-project';
 import {TeamProjectList} from '../business_object/team-project-list';
-import {TeamProjectListFactory} from '../factory/team-project-list-factory';
+import {TeamProjectService} from '../service/team-project-service';
 import {MdButton} from '@angular2-material/button';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input';
 import {FORM_DIRECTIVES} from '@angular/forms';
@@ -24,7 +24,7 @@ import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
         MdButton
     ]
 })
-export class LoginView {
+export class LoginView implements OnInit {
   projectList: TeamProjectList;
   showTeamProjects: boolean = false;
   showServer: boolean = false;
@@ -38,7 +38,7 @@ export class LoginView {
               private route: ActivatedRoute,
               private login: Login,
               private user: User,
-              private teamProjectListFactory: TeamProjectListFactory) {
+              private teamProjectService: TeamProjectService) {
   }
 
   ngOnInit() {
@@ -100,8 +100,8 @@ export class LoginView {
     this.showServer = false;
     var appendedServer = "https://" + this.server;
     this.window.localStorage.setItem("server", appendedServer);
-    let teamProjectList = this.teamProjectListFactory.create();
-    teamProjectList.fetch().subscribe(list => {
+    let teamProjectList = new TeamProjectList();
+    this.teamProjectService.getList().subscribe(list => {
       this.projectList = list;
       this.showTeamProjects = true;
       this.showLoading = false;

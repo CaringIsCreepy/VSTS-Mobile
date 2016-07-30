@@ -6,15 +6,15 @@ import {provide} from '@angular/core' ;
 import {Settings} from './settings';
 import {Login} from './business_object/login';
 import {User} from './business_object/user';
-import {TeamProjectListFactory} from './factory/team-project-list-factory';
-import {TeamProjectFactory} from './factory/team-project-factory';
+import {TeamProjectService} from './service/team-project-service';
 import {TeamProject} from './business_object/team-project';
 import {OAuthHttp} from './core/oauth-http';
 import {APP_ROUTER_PROVIDERS} from './app.routes';
 import {BuildList} from './business_object/build-list';
-import {BuildFactory} from './factory/build-factory';
+import {BuildService} from './service/build-service';
 import {QueryList} from './business_object/query-list';
 import {WorkItemList} from './business_object/work-item-list';
+import {WorkItemService} from './service/work-item-service';
 
 bootstrap(App, [
   HTTP_PROVIDERS,
@@ -22,12 +22,12 @@ bootstrap(App, [
   Settings,
   Login,
   User,
-  TeamProjectListFactory,
-  TeamProjectFactory,
+  TeamProjectService,
   OAuthHttp,
   BuildList,
-  BuildFactory,
+  BuildService,
   QueryList,
   WorkItemList,
+  WorkItemService,
   provide(Window, {useValue: window})
 ]);
