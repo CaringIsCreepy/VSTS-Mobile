@@ -5,6 +5,8 @@ import {LoginView} from './view/login-view.component';
 import {HomeView} from './view/home-view.component';
 import {Login} from './business_object/login';
 import {Settings} from './settings';
+import {WorkItemHomeView} from  './view/work-item-home-view.component';
+import {BuildView} from './view/build-view.component';
 
 @Component({
     selector: "my-app",
@@ -13,7 +15,7 @@ import {Settings} from './settings';
         ROUTER_DIRECTIVES,
         HomeView,
     ],
-    precompile: [HomeView, LoginView]
+    precompile: [HomeView, LoginView, WorkItemHomeView, BuildView]
 })
 
 export class App {

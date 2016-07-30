@@ -15,6 +15,7 @@ import {BuildService} from './service/build-service';
 import {QueryList} from './business_object/query-list';
 import {WorkItemList} from './business_object/work-item-list';
 import {WorkItemService} from './service/work-item-service';
+import {QueryService} from './service/query-service';
 
 bootstrap(App, [
   HTTP_PROVIDERS,
@@ -29,5 +30,6 @@ bootstrap(App, [
   QueryList,
   WorkItemList,
   WorkItemService,
+  QueryService,
   provide(Window, {useValue: window})
 ]);

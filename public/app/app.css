@@ -1,6 +1,7 @@
 body.background {
     background-color: #25003b;
     color: white;
+    height:100%;
 }
 .tile {
     border: 1px solid #7302b5;

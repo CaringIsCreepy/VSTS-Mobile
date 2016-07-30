@@ -12,6 +12,7 @@ import {QueryList} from '../business_object/query-list';
 import {Query} from '../business_object/query';
 import {QueryTile} from '../tile/query-tile.component';
 import {BuildService} from '../service/build-service';
+import {QueryService} from '../service/query-service';
 
 @Component({
     selector: "home",
@@ -36,7 +37,7 @@ export class HomeView {
                 private login: Login,
                 private router: Router,
                 private buildService : BuildService,
-                private queryList : QueryList,
+                private queryService : QueryService,
                 private user: User) {
         if (login.isLoggedIn()) {
             this.showGetStarted = false;
@@ -66,7 +67,7 @@ export class HomeView {
             this.showLoading = false;
         });
 
-        this.queryList.fetchListAsFlat().subscribe(queryList => {
+        this.queryService.getListAsFlat().subscribe(queryList => {
             if (queryList.length > 0) {
                 queryList.forEach(query => {
                     if (query.name === 'My Tasks' || query.name === 'My Work Items' || query.name === 'Assigned to me') {
