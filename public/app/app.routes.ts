@@ -3,6 +3,7 @@ import { LoginView } from './view/login-view.component';
 import { HomeView } from './view/home-view.component';
 import { BuildView } from './view/build-view.component';
 import { WorkItemHomeView } from './view/work-item-home-view.component';
+import { SettingsView } from './view/settings-view.component';
 
 const routes: RouterConfig = [
   {
@@ -24,6 +25,10 @@ const routes: RouterConfig = [
   {
     path: 'workItemHome',
     component: WorkItemHomeView
+  },
+    {
+    path: 'settings',
+    component: SettingsView
   }
 ];
 

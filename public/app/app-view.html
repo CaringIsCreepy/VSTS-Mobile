@@ -1,5 +1,5 @@
 <div style="oveflow:auto;"><router-outlet></router-outlet></div>
-<div *ngIf="isLoggedIn" class="col-xs-12" style="height:50px; position:fixed; bottom:0;">
+<div *ngIf="isLoggedIn" class="col-xs-12" style="height:50px; position:fixed; bottom:0; margin: 0; padding:0;">
     <div class="col-xs-3" style="text-align:center;" [routerLink]="['/home']">
         <div class="glyphicon glyphicon-home menu-icon"></div>
         <div>Home</div>
@@ -12,7 +12,7 @@
         <div class="glyphicon glyphicon-th-large menu-icon"></div>
         <div>Builds</div>
     </div>
-    <div class="col-xs-3" style="text-align:center;">
+    <div class="col-xs-3" style="text-align:center;" [routerLink]="['/settings']">
         <div class="glyphicon glyphicon-cog menu-icon"></div>
         <div>Settings</div>
     </div>
