@@ -2,13 +2,13 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
-import {Login} from '../business_object/login';
+import {LoginService} from '../service/login-service';
 
 @Injectable()
 export class OAuthHttp {
   constructor(private http: Http,
               private window: Window,
-              private login: Login) {
+              private loginService: LoginService) {
   }
 
   get(url: string): Observable<Response> {
@@ -82,7 +82,7 @@ export class OAuthHttp {
   }
 
   private refreshToken(url: string, subject: Subject<Response>, retryCallback: () => void) {
-    this.login.refreshAuthToken().subscribe(res => {
+    this.loginService.refreshAuthToken().subscribe(res => {
       // login.ts sets window.localStorage key's
 
       retryCallback()

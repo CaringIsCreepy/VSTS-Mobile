@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {LoginView} from '../view/login-view.component';
-import {Login} from '../business_object/login';
+import {LoginService} from '../service/login-service';
 import {MdSpinner} from '@angular2-material/progress-circle';
 import {MdButton} from '@angular2-material/button';
 import {User} from '../business_object/user';
@@ -13,6 +13,8 @@ import {Query} from '../business_object/query';
 import {QueryTile} from '../tile/query-tile.component';
 import {BuildService} from '../service/build-service';
 import {QueryService} from '../service/query-service';
+import {WorkItemService} from '../service/work-item-service';
+import {UserService} from '../service/user-service';
 
 @Component({
     selector: "home",
@@ -23,23 +25,23 @@ import {QueryService} from '../service/query-service';
         MdButton,
         BuildTile,
         QueryTile
-    ]
+    ],
+    providers: [UserService, BuildService, QueryService, WorkItemService]
 })
 export class HomeView {
     showLoading: boolean = true;
     showGetStarted: boolean = false;
-    loggedInUser: User;
     topBuildList: BuildList;
     topBuild: Build;
     topQuery: Query;
     
     constructor(private window: Window,
-                private login: Login,
+                private loginService: LoginService,
                 private router: Router,
                 private buildService : BuildService,
                 private queryService : QueryService,
-                private user: User) {
-        if (login.isLoggedIn()) {
+                private userService: UserService) {
+        if (loginService.isLoggedIn()) {
             this.showGetStarted = false;
 
             var pins = this.window.localStorage.getItem('pinnedItems');

@@ -2,8 +2,8 @@ import {Component, Input, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {Settings} from '../settings';
-import {Login} from '../business_object/login';
-import {User} from '../business_object/user';
+import {LoginService} from '../service/login-service';
+import {UserService} from '../service/user-service';
 import {TeamProject} from '../business_object/team-project';
 import {TeamProjectList} from '../business_object/team-project-list';
 import {TeamProjectService} from '../service/team-project-service';
@@ -16,13 +16,14 @@ import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 @Component({
   selector: 'login',
   templateUrl: '/app/view/login-view.html',
-    directives: [
-        MD_INPUT_DIRECTIVES,
-        MD_LIST_DIRECTIVES,
-        MdSpinner,
-        FORM_DIRECTIVES,
-        MdButton
-    ]
+  directives: [
+    MD_INPUT_DIRECTIVES,
+    MD_LIST_DIRECTIVES,
+    MdSpinner,
+    FORM_DIRECTIVES,
+    MdButton
+  ],
+  providers: [UserService, TeamProjectService]
 })
 export class LoginView implements OnInit {
   projectList: TeamProjectList;
@@ -30,19 +31,19 @@ export class LoginView implements OnInit {
   showServer: boolean = false;
   showLoading: boolean = true;
   code: string;
-  @Input() server: string; 
+  @Input() server: string;
 
   constructor(private window: Window,
-              private router: Router,
-              private settings: Settings,
-              private route: ActivatedRoute,
-              private login: Login,
-              private user: User,
-              private teamProjectService: TeamProjectService) {
+    private router: Router,
+    private settings: Settings,
+    private route: ActivatedRoute,
+    private loginService: LoginService,
+    private userService: UserService,
+    private teamProjectService: TeamProjectService) {
   }
 
   ngOnInit() {
-    this.code  = this.route.snapshot.params['code'];
+    this.code = this.route.snapshot.params['code'];
 
     let authToken = this.window.localStorage.getItem("access_token");
 
@@ -75,7 +76,7 @@ export class LoginView implements OnInit {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
 
-    this.login.getAuthToken(existingCode)
+    this.loginService.getAuthToken(existingCode)
       .subscribe(res => {
         // login.ts sets window.localStorage key's
         this.showServer = true;
@@ -89,7 +90,7 @@ export class LoginView implements OnInit {
   }
 
   getProfile() {
-    this.user.fetch().subscribe(userObject => {
+    this.userService.getCurrentUser().subscribe(userObject => {
       this.showServer = true;
       this.showLoading = false;
     }, error => { });

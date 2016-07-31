@@ -6,7 +6,7 @@ import {Response} from '@angular/http';
 import {Subject} from 'rxjs/Subject';
 
 @Injectable()
-export class Login {
+export class LoginService {
   constructor(private http: Http,
               private settings: Settings,
               private window: Window) {

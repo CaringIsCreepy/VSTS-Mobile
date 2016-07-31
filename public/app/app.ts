@@ -3,7 +3,7 @@ import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {URLSearchParams} from '@angular/http';
 import {LoginView} from './view/login-view.component';
 import {HomeView} from './view/home-view.component';
-import {Login} from './business_object/login';
+import {LoginService} from './service/login-service';
 import {Settings} from './settings';
 import {WorkItemHomeView} from  './view/work-item-home-view.component';
 import {BuildView} from './view/build-view.component';
@@ -22,10 +22,10 @@ import {SettingsView} from './view/settings-view.component';
 export class App {
     private isLoggedIn: boolean;
 
-    constructor(private login: Login,
+    constructor(private loginService: LoginService,
                 private router: Router,
                 private settings: Settings) {
-        this.isLoggedIn = login.isLoggedIn()
+        this.isLoggedIn = loginService.isLoggedIn()
         
         if (this.isLoggedIn) {    
             this.router.navigate(['home']);
