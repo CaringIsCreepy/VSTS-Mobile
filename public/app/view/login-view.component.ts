@@ -1,7 +1,7 @@
 import {Component, Input, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {Http, Headers, RequestOptions} from '@angular/http';
-import {Settings} from '../settings';
+import {Settings} from '../core/settings';
 import {LoginService} from '../service/login-service';
 import {UserService} from '../service/user-service';
 import {TeamProject} from '../business_object/team-project';

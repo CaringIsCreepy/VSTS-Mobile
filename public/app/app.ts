@@ -4,7 +4,7 @@ import {URLSearchParams} from '@angular/http';
 import {LoginView} from './view/login-view.component';
 import {HomeView} from './view/home-view.component';
 import {LoginService} from './service/login-service';
-import {Settings} from './settings';
+import {Settings} from './core/settings';
 import {WorkItemHomeView} from  './view/work-item-home-view.component';
 import {BuildView} from './view/build-view.component';
 import {SettingsView} from './view/settings-view.component';
