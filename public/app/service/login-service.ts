@@ -30,7 +30,7 @@ export class LoginService {
           this.window.localStorage.setItem("access_token", res.json().access_token);
           this.window.localStorage.setItem("refresh_token", res.json().refresh_token);
           let expirationDate = new Date();
-          expirationDate.setSeconds(expirationDate.getSeconds() + res.json().expires_in);
+          expirationDate = new Date(expirationDate.getTime() + (res.json().expires_in * 1000));
           this.window.localStorage.setItem("expiration_date", expirationDate.toString());
 
           subject.next(res);
@@ -53,7 +53,7 @@ export class LoginService {
             this.window.localStorage.setItem("access_token", res.json().access_token);
             this.window.localStorage.setItem("refresh_token", res.json().refresh_token);
             let expirationDate = new Date();
-            expirationDate.setSeconds(expirationDate.getSeconds() + res.json().expires_in);
+            expirationDate = new Date(expirationDate.getTime() + (res.json().expires_in * 1000));
             this.window.localStorage.setItem("expiration_date", expirationDate.toString());
 
             subject.next(res);
