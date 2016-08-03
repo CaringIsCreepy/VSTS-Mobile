@@ -19,7 +19,11 @@ gulp.task('prod', function () {
     var tsResult = tsProject.src(['**/*.ts', '!**/node_modules/**'])
                             .pipe(ts(tsProject));
 
-    return tsResult.js.pipe(gulp.dest('./public'))
-                      .pipe(zip("deploy.zip"))
-                      .pipe(gulp.dest("./"));
+    var nodeApp = gulp.src(['**/*.js', '**/*.jade', '**/*.html', '!**/node_modules/**']);
+
+    return merge([
+        tsResult.js,
+        nodeApp
+	]).pipe(zip("deploy.zip"))
+      .pipe(gulp.dest('./'));
 });
