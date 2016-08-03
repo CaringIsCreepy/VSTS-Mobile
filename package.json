@@ -6,7 +6,6 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
-
     "jade": "^1.11.0",
     "jasmine-core": "^2.4.1",
     "merge2": "^1.0.2",
@@ -20,6 +19,7 @@
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-typescript": "^2.13.0",
+    "gulp-zip": "^3.2.0",
     "tslint": "^3.9.0",
     "typescript": "^1.8.10"
   },
