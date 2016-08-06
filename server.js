@@ -2,6 +2,7 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
 var nconf = require('nconf');
+var port = process.env.port || 80;
 
 var app = new express();
 
@@ -49,6 +50,6 @@ app.post('/refreshAuthToken', function(req, res) {
     });
 });
 
-app.listen(80, function() {
+app.listen(port, function() {
     
 });
