@@ -9,6 +9,7 @@
     "jade": "^1.11.0",
     "jasmine-core": "^2.4.1",
     "merge2": "^1.0.2",
+    "method-override": "^2.3.6",
     "nconf": "^0.8.4",
     "request": "^2.72.0"
   },
