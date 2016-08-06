@@ -19,7 +19,7 @@ gulp.task('prod', function () {
     var tsResult = tsProject.src(['**/*.ts', '!**/node_modules/**'])
                             .pipe(ts(tsProject));
 
-    var nodeApp = gulp.src(['**/*.js', '**/*.jade', '**/*.html', '**/*.json', 'web.config', '!**/node_modules/**']);
+    var nodeApp = gulp.src(['**/*.js', '**/*.jade', '**/*.html', '**/*.json', 'web.config']);
 
     return merge([
         tsResult.js,
