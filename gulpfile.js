@@ -21,9 +21,8 @@ gulp.task('prod', function () {
 
     var nodeApp = gulp.src(['**/*.js', '**/*.jade', '**/*.html', '**/*.json', 'web.config']);
 
-    return merge([
-        tsResult.js,
-        nodeApp
-	]).pipe(zip("deploy.zip"))
+    tsResult.js.pipe(gulp.dest('./public'));
+
+    return nodeApp.pipe(zip("deploy.zip"))
       .pipe(gulp.dest('./'));
 });
