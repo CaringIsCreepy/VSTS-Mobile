@@ -15,14 +15,8 @@ gulp.task('dev', function () {
 	]);
 });
 
-gulp.task('prod', function () {
-    var tsResult = tsProject.src(['**/*.ts', '!**/node_modules/**'])
-                            .pipe(ts(tsProject));
+gulp.task('prod', ['dev'], function () {
+    var nodeApp = gulp.src(['**/*.js', '**/*.jade', '**/*.html', '**/*.json', 'web.config', '!**/spec/**']);
 
-    var nodeApp = gulp.src(['**/*.js', '**/*.jade', '**/*.html', '**/*.json', 'web.config']);
-
-    tsResult.js.pipe(gulp.dest('./public'));
-
-    return nodeApp.pipe(zip("deploy.zip"))
-      .pipe(gulp.dest('./'));
+    return nodeApp.pipe(zip("deploy.zip")).pipe(gulp.dest('./'));
 });
