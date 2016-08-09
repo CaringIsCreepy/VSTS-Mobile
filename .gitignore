@@ -9,3 +9,4 @@ public/spec/**/*.js.map
 config.json
 public/build
 public/css
+.tscache

@@ -10,7 +10,7 @@ module.exports = function (grunt) {
                     keepDirectoryHierarchy: true,
                     module: 'system',
                     moduleResolution: "node",
-                    target: 'es5',
+                    target: 'es6',
                     inlineSourceMap: true,
                     sourceMap: true,
                     emitDecoratorMetadata: true,
@@ -18,13 +18,19 @@ module.exports = function (grunt) {
                     noImplicitAny: false
                 }
             }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-zip');
+    grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('prod', 'Log some stuff.', function () {
+    grunt.registerTask('prod', '', function () {
         grunt.task.run('ts');
 
         var settings = grunt.file.read('public/app/core/settings.js');
@@ -42,5 +48,10 @@ module.exports = function (grunt) {
         grunt.file.write('public/app/core/settings.js', settings)
 
         grunt.task.run('zip');
+    });
+
+    grunt.registerTask('test', '', function () {
+        grunt.task.run('ts');
+        grunt.task.run('karma');
     });
 };

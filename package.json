@@ -11,14 +11,20 @@
     "merge2": "^1.0.2",
     "method-override": "^2.3.6",
     "nconf": "^0.8.4",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "requirejs": "^2.2.0"
   },
   "devDependencies": {
     "codelyzer": "0.0.19",
     "grunt": "^1.0.1",
+    "grunt-karma": "^2.0.0",
+    "grunt-ts": "^6.0.0-beta.3",
     "grunt-typescript": "^0.8.0",
     "grunt-zip": "^0.17.1",
-    "grunt-ts": "^6.0.0-beta.3",
+    "karma": "^1.1.2",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-requirejs": "^1.0.0",
     "tslint": "^3.9.0",
     "typescript": "^1.8.10"
   },
