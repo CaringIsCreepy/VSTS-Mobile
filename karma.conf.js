@@ -3,9 +3,9 @@ module.exports = function(config) {
     files: [
         '**/**.spec.js',
     ],
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs', 'chai'],
     singleRun: true,
     autoWatch: false,
-    browsers: ['Chrome']
+    browsers: ['PhantomJS']
   });
 };
