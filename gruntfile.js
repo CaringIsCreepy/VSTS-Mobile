@@ -30,9 +30,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-zip');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('prod', '', function () {
-        grunt.task.run('ts');
+    grunt.registerTask('prod', ['ts', 'transformAzure', 'zip']);
 
+    grunt.registerTask('test', '', function () {
+        grunt.task.run('ts');
+        grunt.task.run('karma');
+    });
+
+    grunt.registerTask('transformAzure', '', function () {
         var settings = grunt.file.read('./public/app/core/settings.js');
 
         settings = settings.replace("https://app.vssps.visualstudio.com/oauth2/authorize" +
@@ -48,12 +53,5 @@ module.exports = function (grunt) {
         settings = settings.replace("\"http://127.0.0.1/", "\"http://vsts-mobile.azurewebsites.net");
 
         grunt.file.write('public/app/core/settings.js', settings)
-
-        grunt.task.run('zip');
-    });
-
-    grunt.registerTask('test', '', function () {
-        grunt.task.run('ts');
-        grunt.task.run('karma');
     });
 };
