@@ -5,6 +5,7 @@
         "public/app/**/**.js": true,
         "public/css/": true,
         "/**/node_modules": true,
-        "public/spec/**.js": true
+        "public/spec/**.js": true,
+        "typings/": true
     }
 }

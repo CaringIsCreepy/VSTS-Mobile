@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, provide} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {URLSearchParams} from '@angular/http';
 import {LoginView} from './view/login-view.component';
@@ -8,6 +8,7 @@ import {Settings} from './core/settings';
 import {WorkItemHomeView} from  './view/work-item-home-view.component';
 import {BuildView} from './view/build-view.component';
 import {SettingsView} from './view/settings-view.component';
+import {OAuthHttp} from './core/oauth-http';
 
 @Component({
     selector: "my-app",
@@ -16,24 +17,30 @@ import {SettingsView} from './view/settings-view.component';
         ROUTER_DIRECTIVES,
         HomeView,
     ],
-    precompile: [HomeView, LoginView, WorkItemHomeView, BuildView, SettingsView]
+    providers: [
+        LoginService,
+        OAuthHttp,
+        Settings,
+        provide(Window, {useValue: window})
+    ]
+    //precompile: [HomeView, LoginView, WorkItemHomeView, BuildView, SettingsView]
 })
 
 export class App {
     private isLoggedIn: boolean;
 
     constructor(private loginService: LoginService,
-                private router: Router,
-                private settings: Settings) {
+        private router: Router,
+        private settings: Settings) {
         this.isLoggedIn = loginService.isLoggedIn()
-        
-        if (this.isLoggedIn) {    
+
+        if (this.isLoggedIn) {
             this.router.navigate(['home']);
         }
         else {
             let params = new URLSearchParams(window.location.href);
             let code = params.get(this.settings.ApplicationUrl + "?code");
-            
+
             if (code !== null && code !== "" && code !== undefined) {
                 this.router.navigate(['/loginParam', code]);
             }

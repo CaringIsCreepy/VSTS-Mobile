@@ -24,7 +24,7 @@ import {UserService} from '../service/user-service';
         MdSpinner,
         MdButton,
         BuildTile,
-        QueryTile
+        QueryTile,
     ],
     providers: [UserService, BuildService, QueryService, WorkItemService]
 })

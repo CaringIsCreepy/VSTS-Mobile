@@ -10,3 +10,4 @@ config.json
 public/build
 public/css
 .tscache
+typings/

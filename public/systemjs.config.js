@@ -17,8 +17,9 @@
      '@angular2-material/core/annotations/field-value': '/node_modules/@angular2-material/core/annotations',
      '@angular2-material/core/errors/error': '/node_modules/@angular2-material/core/errors/',
      '@angular2-material/core/line/line': '/node_modules/@angular2-material/core/line/',
+     '@angular2-material/core/ripple/ripple': '/node_modules/@angular2-material/core/ripple/',
+     '@angular2-material/core': '../node_modules/@angular2-material/core/',
   };
-  // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
@@ -31,6 +32,8 @@
     '@angular2-material/core/annotations/field-value': { main: 'field-value.js', defaultExtension: 'js' },
     '@angular2-material/core/errors/error': { main: 'error.js', defaultExtension: 'js' },
     '@angular2-material/core/line/line': { main: 'line.js', defaultExtension: 'js' },
+    '@angular2-material/core/ripple/ripple': { main: 'ripple.js', defaultExtension: 'js' },
+    '@angular2-material/core': { main: 'core.js', defaultExtension: 'js' },    
   };
   var ngPackageNames = [
     'common',

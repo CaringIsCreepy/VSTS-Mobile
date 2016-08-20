@@ -28,6 +28,7 @@
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-requirejs": "^1.0.0",
+    "phantomjs": "^2.1.7",
     "tslint": "^3.9.0",
     "typescript": "^1.8.10"
   },

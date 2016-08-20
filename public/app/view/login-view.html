@@ -3,10 +3,10 @@
     <h2>VSTS Mobile</h2>
   </div>
   <div class="form-group" *ngIf="showServer">
-    <!--<md-input placeholder="SERVER" style="width:100%;" ng-default-control [(server)]="server">
+    <md-input placeholder="SERVER" style="width:100%;" ng-default-control>
       <span md-prefix>https://</span>
-    </md-input>-->
-    <input type="text" [(ngModel)]="server" class="form-control" placeholder="Server" />
+    </md-input>
+    <!--<input type="text" [(ngModel)]="server" class="form-control" placeholder="Server" />-->
   </div>
   <div class="form-group" *ngIf="showServer">
     <button md-raised-button color="primary" style="width:100%;" (click)="connectToServer()">Submit</button>
