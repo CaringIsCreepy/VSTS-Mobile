@@ -11,8 +11,6 @@ module.exports = function (grunt) {
                     module: 'system',
                     moduleResolution: "node",
                     target: 'es6',
-                    inlineSourceMap: true,
-                    sourceMap: true,
                     emitDecoratorMetadata: true,
                     experimentalDecorators: true,
                     noImplicitAny: false
