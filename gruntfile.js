@@ -29,12 +29,12 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-typings');
+    //grunt.loadNpmTasks('grunt-typings');
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-zip');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('prod', ['typings', 'ts', 'transformAzure', 'zip']);
+    grunt.registerTask('prod', ['ts', 'transformAzure', 'zip']);
 
     grunt.registerTask('test', '', function () {
         grunt.task.run('ts');
