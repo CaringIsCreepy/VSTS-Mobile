@@ -13,7 +13,7 @@ import { BuildView } from './view/build-view.component';
 import { WorkItemHomeView } from './view/work-item-home-view.component';
 import { SettingsView } from './view/settings-view.component';
 import { MdRippleModule } from '@angular2-material/core';
-import { HttpModule }     from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 const routes: RouterConfig = [
   {

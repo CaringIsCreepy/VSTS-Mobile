@@ -40,7 +40,6 @@ export class LoginView implements OnInit {
     private loginService: LoginService,
     private userService: UserService,
     private teamProjectService: TeamProjectService) {
-      alert('test');
   }
 
   ngOnInit() {
