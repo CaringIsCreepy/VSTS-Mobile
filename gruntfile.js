@@ -13,7 +13,8 @@ module.exports = function (grunt) {
                     target: 'es6',
                     emitDecoratorMetadata: true,
                     experimentalDecorators: true,
-                    noImplicitAny: false
+                    noImplicitAny: false,
+                    sourceMap: false
                 }
             }
         },
