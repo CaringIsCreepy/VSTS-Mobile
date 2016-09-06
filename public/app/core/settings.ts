@@ -8,7 +8,7 @@ export class Settings {
     return this.oauthUrl;
   }
 
-  private applicationUrl: string = "http://127.0.0.1/";
+  private applicationUrl: string = "http://127.0.0.1:80/";
   get ApplicationUrl():string {
     return this.applicationUrl;
   }
