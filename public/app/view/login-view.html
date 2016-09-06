@@ -3,7 +3,7 @@
     <h2>VSTS Mobile</h2>
   </div>
   <div class="form-group" *ngIf="showServer">
-    <md-input placeholder="SERVER" style="width:100%;" ng-default-control>
+    <md-input placeholder="SERVER" style="width:100%;" ng-default-control [(ngModel)]="server">
       <span md-prefix>https://</span>
     </md-input>
     <!--<input type="text" [(ngModel)]="server" class="form-control" placeholder="Server" />-->

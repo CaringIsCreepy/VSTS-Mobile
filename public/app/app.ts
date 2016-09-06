@@ -21,7 +21,7 @@ import {OAuthHttp} from './core/oauth-http';
         LoginService,
         OAuthHttp,
         Settings,
-        provide(Window, {useValue: window})
+        { provide: Window, useValue: window }
     ]
     //precompile: [HomeView, LoginView, WorkItemHomeView, BuildView, SettingsView]
 })

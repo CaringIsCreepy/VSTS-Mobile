@@ -1,40 +1,55 @@
-/**
- * System configuration for Angular 2 samples
- * Adjust as necessary for your application needs.
- */
-(function(global) {
-  // map tells the System loader where to look for things
+(function (global) {
   var map = {
-    'app':                        'app', // 'dist',
-    '@angular':                   'node_modules/@angular',
+    'app': 'app', // 'dist',
+    '@angular': 'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    'rxjs':                       'node_modules/rxjs',
-     '@angular2-material/progress-circle': '/node_modules/@angular2-material/progress-circle',
-     '@angular2-material/button': '/node_modules/@angular2-material/button',
-     '@angular2-material/card': '/node_modules/@angular2-material/card',
-     '@angular2-material/input': '/node_modules/@angular2-material/input',
-     '@angular2-material/list': '/node_modules/@angular2-material/list',
-     '@angular2-material/core/annotations/field-value': '/node_modules/@angular2-material/core/annotations',
-     '@angular2-material/core/errors/error': '/node_modules/@angular2-material/core/errors/',
-     '@angular2-material/core/line/line': '/node_modules/@angular2-material/core/line/',
-     '@angular2-material/core/ripple/ripple': '/node_modules/@angular2-material/core/ripple/',
-     '@angular2-material/core': '../node_modules/@angular2-material/core/',
+    'rxjs': 'node_modules/rxjs',
+    '@angular2-material/core': 'node_modules/@angular2-material/core/'
   };
-  var packages = {
-    'app':                        { main: 'main.js',  defaultExtension: 'js' },
-    'rxjs':                       { defaultExtension: 'js' },
+  const components = [
+    'all',
+    'button',
+    'card',
+    'checkbox',
+    'dialog',
+    'grid-list',
+    'icon',
+    'input',
+    'list',
+    'menu',
+    'progress-bar',
+    'progress-circle',
+    'radio',
+    'sidenav',
+    'slider',
+    'slide-toggle',
+    'button-toggle',
+    'tabs',
+    'toolbar',
+    'tooltip',
+  ];
+
+  const packages = {
+    '@angular2-material/core': {
+      format: 'cjs',
+      main: 'core.umd.js'
+    },
+    'app': { main: 'main.js', defaultExtension: 'js' },
+    'rxjs': { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-    '@angular2-material/progress-circle': { main: 'progress-circle.js', defaultExtension: 'js' },
-    '@angular2-material/button': { main: 'button.js', defaultExtension: 'js' },
-    '@angular2-material/card': { main: 'card.js', defaultExtension: 'js' },
-    '@angular2-material/input': { main: 'input.js', defaultExtension: 'js' },
-    '@angular2-material/list': { main: 'list.js', defaultExtension: 'js' },
-    '@angular2-material/core/annotations/field-value': { main: 'field-value.js', defaultExtension: 'js' },
-    '@angular2-material/core/errors/error': { main: 'error.js', defaultExtension: 'js' },
-    '@angular2-material/core/line/line': { main: 'line.js', defaultExtension: 'js' },
-    '@angular2-material/core/ripple/ripple': { main: 'ripple.js', defaultExtension: 'js' },
-    '@angular2-material/core': { main: 'core.js', defaultExtension: 'js' },    
+    '.': {
+      defaultExtension: 'js'
+    }
   };
+  components.forEach(name => {
+    packages[`@angular2-material/${name}`] = {
+      format: 'cjs',
+      main: `${name}.umd.js`,
+      //defaultExtension: '.umd.js'
+    };
+    map[`@angular2-material/${name}`] = `/node_modules/@angular2-material/${name}`;
+  });
+
   var ngPackageNames = [
     'common',
     'compiler',
@@ -49,11 +64,11 @@
   ];
   // Individual files (~300 requests):
   function packIndex(pkgName) {
-    packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
+    packages['@angular/' + pkgName] = { main: 'index.js', defaultExtension: 'js' };
   }
   // Bundled (~40 requests):
   function packUmd(pkgName) {
-    packages['@angular/'+pkgName] = { main: 'bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
+    packages['@angular/' + pkgName] = { main: 'bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
   }
   // Most environments should use UMD; some (Karma) need the individual index files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;

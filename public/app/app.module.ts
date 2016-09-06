@@ -12,8 +12,10 @@ import { HomeView } from './view/home-view.component';
 import { BuildView } from './view/build-view.component';
 import { WorkItemHomeView } from './view/work-item-home-view.component';
 import { SettingsView } from './view/settings-view.component';
-import { MdRippleModule } from '@angular2-material/core';
+import { MdRippleModule, MdCoreModule} from '@angular2-material/core';
 import { HttpModule } from '@angular/http';
+import { BuildTile } from './tile/build-tile.component';
+import { QueryTile } from './tile/query-tile.component';
 
 const routes: RouterConfig = [
   {
@@ -47,15 +49,16 @@ const routes: RouterConfig = [
 ];
 
 @NgModule({
-  declarations: [App, HomeView, LoginView, BuildView, WorkItemHomeView, SettingsView],
+  declarations: [App, HomeView, LoginView, BuildView, WorkItemHomeView, SettingsView, BuildTile, QueryTile],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    MdButtonModule,
-    MdInputModule,
-    MdProgressCircleModule,
-    MdRippleModule,
+    MdCoreModule.forRoot(),
+    MdButtonModule.forRoot(),
+    MdInputModule.forRoot(),
+    MdProgressCircleModule.forRoot(),
+    MdRippleModule.forRoot(),
     HttpModule
   ],
   bootstrap: [App]
