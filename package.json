@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "scripts": {
+    "start": "tsc && concurrently \"npm run tsc:w\" ",
+    "lite": "lite-server -c lite-config.json",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings",
+    "test": "live-server --open=unit-tests.html"
+  },
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
@@ -31,10 +40,7 @@
     "karma-requirejs": "^1.0.0",
     "phantomjs": "^2.1.7",
     "tslint": "^3.9.0",
-    "typescript": "^1.8.10"
-  },
-  "scripts": {
-    "test": "live-server --open=unit-tests.html"
+    "typescript": "^2.0.2"
   },
   "repository": {
     "type": "git",

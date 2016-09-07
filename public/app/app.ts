@@ -1,5 +1,5 @@
-import {Component, provide} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 import {URLSearchParams} from '@angular/http';
 import {LoginView} from './view/login-view.component';
 import {HomeView} from './view/home-view.component';
@@ -13,10 +13,6 @@ import {OAuthHttp} from './core/oauth-http';
 @Component({
     selector: "my-app",
     templateUrl: "/app/app-view.html",
-    directives: [
-        ROUTER_DIRECTIVES,
-        HomeView,
-    ],
     providers: [
         LoginService,
         OAuthHttp,
@@ -39,7 +35,7 @@ export class App {
         }
         else {
             let params = new URLSearchParams(window.location.href);
-            let code = params.get(this.settings.ApplicationUrl + "?code");
+            let code = params.get(this.settings.RedirectBaseUrl + "?code");
 
             if (code !== null && code !== "" && code !== undefined) {
                 this.router.navigate(['/loginParam', code]);

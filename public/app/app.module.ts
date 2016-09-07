@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MdProgressCircleModule } from '@angular2-material/progress-circle';
 import { MdButtonModule } from '@angular2-material/button';
 import { MdInputModule } from '@angular2-material/input';
-import { provideRouter, RouterConfig }  from '@angular/router';
+import { Routes }  from '@angular/router';
 import { LoginView } from './view/login-view.component';
 import { HomeView } from './view/home-view.component';
 import { BuildView } from './view/build-view.component';
@@ -17,7 +17,7 @@ import { HttpModule } from '@angular/http';
 import { BuildTile } from './tile/build-tile.component';
 import { QueryTile } from './tile/query-tile.component';
 
-const routes: RouterConfig = [
+const routes: Routes = [
   {
     path: '',
     component: App

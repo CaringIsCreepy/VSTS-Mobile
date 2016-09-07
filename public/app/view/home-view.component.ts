@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {LoginView} from '../view/login-view.component';
 import {LoginService} from '../service/login-service';
 import {MdSpinner} from '@angular2-material/progress-circle';
@@ -19,13 +19,6 @@ import {UserService} from '../service/user-service';
 @Component({
     selector: "home",
     templateUrl: "/app/view/home-view.html",
-    directives: [
-        ROUTER_DIRECTIVES,
-        MdSpinner,
-        MdButton,
-        BuildTile,
-        QueryTile,
-    ],
     providers: [UserService, BuildService, QueryService, WorkItemService]
 })
 export class HomeView {

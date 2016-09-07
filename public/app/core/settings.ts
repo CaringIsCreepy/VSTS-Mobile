@@ -12,4 +12,9 @@ export class Settings {
   get ApplicationUrl():string {
     return this.applicationUrl;
   }
+
+  private redirectBaseUrl: string = "http://127.0.0.1:80/";
+  get RedirectBaseUrl():string {
+    return this.redirectBaseUrl;
+  }
 }
