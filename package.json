@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" ",
+    "start": "concurrently \"npm run tsc:w\" \"node server.js\"",
     "lite": "lite-server -c lite-config.json",
     "postinstall": "typings install",
     "tsc": "tsc",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "codelyzer": "0.0.19",
+    "concurrently": "^2.2.0",
     "grunt": "^0.4.5",
     "grunt-karma": "^2.0.0",
     "grunt-ts": "^6.0.0-beta.3",
