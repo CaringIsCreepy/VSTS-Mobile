@@ -6,10 +6,8 @@
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"node server.js\"",
     "lite": "lite-server -c lite-config.json",
-    "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings",
     "test": "live-server --open=unit-tests.html"
   },
   "dependencies": {
@@ -31,7 +29,6 @@
     "grunt-karma": "^2.0.0",
     "grunt-ts": "^6.0.0-beta.3",
     "grunt-typescript": "^0.8.0",
-    "grunt-typings": "^0.1.5",
     "grunt-zip": "^0.17.1",
     "karma": "^1.1.2",
     "karma-chai": "^0.1.0",
