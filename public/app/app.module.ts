@@ -9,13 +9,13 @@ import { MdInputModule } from '@angular2-material/input';
 import { Routes }  from '@angular/router';
 import { LoginView } from './view/login-view.component';
 import { HomeView } from './view/home-view.component';
-import { BuildView } from './view/build-view.component';
-import { WorkItemHomeView } from './view/work-item-home-view.component';
 import { SettingsView } from './view/settings-view.component';
 import { MdRippleModule, MdCoreModule} from '@angular2-material/core';
 import { HttpModule } from '@angular/http';
 import { BuildTile } from './tile/build-tile.component';
 import { QueryTile } from './tile/query-tile.component';
+import { BuildModule } from './build_module/build.module';
+import { WorkItemModule } from './work_item_module/work-item-module';
 
 const routes: Routes = [
   {
@@ -35,21 +35,13 @@ const routes: Routes = [
     component: HomeView
   },
   {
-    path: 'build',
-    component: BuildView
-  },
-  {
-    path: 'workItemHome',
-    component: WorkItemHomeView
-  },
-  {
     path: 'settings',
     component: SettingsView
   }
 ];
 
 @NgModule({
-  declarations: [App, HomeView, LoginView, BuildView, WorkItemHomeView, SettingsView, BuildTile, QueryTile],
+  declarations: [App, HomeView, LoginView, SettingsView, BuildTile, QueryTile],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
@@ -59,7 +51,9 @@ const routes: Routes = [
     MdInputModule.forRoot(),
     MdProgressCircleModule.forRoot(),
     MdRippleModule.forRoot(),
-    HttpModule
+    HttpModule,
+    BuildModule,
+    WorkItemModule
   ],
   bootstrap: [App]
 })
