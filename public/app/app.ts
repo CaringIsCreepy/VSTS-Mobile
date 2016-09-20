@@ -5,8 +5,6 @@ import {LoginView} from './view/login-view.component';
 import {HomeView} from './view/home-view.component';
 import {LoginService} from './service/login-service';
 import {Settings} from './core/settings';
-import {WorkItemHomeView} from  './view/work-item-home-view.component';
-import {SettingsView} from './view/settings-view.component';
 import {OAuthHttp} from './core/oauth-http';
 
 @Component({

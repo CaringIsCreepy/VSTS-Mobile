@@ -38,7 +38,8 @@
     "karma-requirejs": "^1.0.0",
     "phantomjs": "^2.1.7",
     "tslint": "^3.9.0",
-    "typescript": "^2.0.2"
+    "typescript": "^2.0.2",
+    "karma-htmlfile-reporter": "^0.2.2"
   },
   "repository": {
     "type": "git",
