@@ -1,15 +1,15 @@
 // #docregion
 module.exports = function(config) {
 
-  var appBase    = '/';       // transpiled app JS and map files
-  var appSrcBase = '/';       // app source TS files
-  var appAssets  = '/'; // component assets fetched by Angular's compiler
+  var appBase    = 'public/app/';       // transpiled app JS and map files
+  var appSrcBase = 'public/app/';       // app source TS files
+  var appAssets  = 'public/app/'; // component assets fetched by Angular's compiler
 
-  var testBase    = 'spec/';       // transpiled test JS and map files
-  var testSrcBase = 'spec/';       // test source TS files
+  var testBase    = 'public/spec/';       // transpiled test JS and map files
+  var testSrcBase = 'public/spec/';       // test source TS files
 
   config.set({
-    basePath: '/',
+    basePath: '.',
     frameworks: ['jasmine'],
     plugins: [
       require('karma-jasmine'),
@@ -49,6 +49,7 @@ module.exports = function(config) {
       // transpiled application & spec code paths loaded via module imports
       {pattern: appBase + '**/*.js', included: false, watched: true},
       {pattern: testBase + '**/*.js', included: false, watched: true},
+      {pattern: 'public/spec/**/*.spec.js', included: true, watched: true},
 
 
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
@@ -77,7 +78,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     singleRun: true
   })
 }
