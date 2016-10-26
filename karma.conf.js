@@ -23,6 +23,7 @@ module.exports = function(config) {
       // Polyfills
       'public/node_modules/core-js/client/shim.js',
       'public/node_modules/reflect-metadata/Reflect.js',
+      'public/node_modules/systemjs/dist/system-polyfills.js',
 
       // zone.js
       'public/node_modules/zone.js/dist/zone.js',
@@ -42,15 +43,14 @@ module.exports = function(config) {
       {pattern: 'public/node_modules/@angular/**/*.js', included: false, watched: false},
       {pattern: 'public/node_modules/@angular/**/*.js.map', included: false, watched: false},
 
-      //{pattern: 'systemjs.config.js', included: false, watched: false},
+      {pattern: 'public/systemjs.config.js', included: false, watched: false},
       //{pattern: 'systemjs.config.extras.js', included: false, watched: false},
       //'karma-test-shim.js',
 
       // transpiled application & spec code paths loaded via module imports
       {pattern: appBase + '**/*.js', included: false, watched: true},
       {pattern: testBase + '**/*.js', included: false, watched: true},
-      {pattern: 'public/spec/**/*.spec.js', included: true, watched: true},
-
+      {pattern: 'public/spec/**/*.spec.js', included: false, watched: true},
 
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
       // (these paths need to be rewritten, see proxies section)
@@ -78,7 +78,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+    browsers: ['PhantomJS'],
+    singleRun: true
   })
 }

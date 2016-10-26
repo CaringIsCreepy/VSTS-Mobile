@@ -5,10 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"node server.js\"",
+    "karma": "karma start karma.conf.js",
     "lite": "lite-server -c lite-config.json",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\""
+    "test": "tsc && concurrently \"npm run tsc:w\" \"npm run karma\""
   },
   "dependencies": {
     "body-parser": "^1.15.1",
