@@ -33,6 +33,10 @@ export class App {
             let params = new URLSearchParams(window.location.href);
             let code = params.get(this.settings.RedirectBaseUrl + "?code");
 
+            if (window.location.href.indexOf("?code") > 0 && code.length < 10) {
+                alert("Could not find auth code from query parameter");
+            }
+
             if (code !== null && code !== "" && code !== undefined) {
                 this.router.navigate(['/loginParam', code]);
             }

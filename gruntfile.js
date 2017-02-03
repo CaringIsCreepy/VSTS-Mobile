@@ -46,7 +46,7 @@ module.exports = function (grunt) {
         settings = settings.replace("client_id=45F0722C-BC39-447E-95C1-D3FE9B131C08", "client_id=DE4A0837-6672-45EC-B9AF-66618A74BE74");
 
         settings = settings.replace("http://127.0.0.1:80/", "http://vsts-mobile.azurewebsites.net/");
-        settings = settings.replace("http://127.0.0.1:80/", "http://vsts-mobile.azurewebsites.net/");
+        settings = settings.replace("http://127.0.0.1/", "http://vsts-mobile.azurewebsites.net/");
 
         grunt.file.write('public/app/core/settings.js', settings)
     });

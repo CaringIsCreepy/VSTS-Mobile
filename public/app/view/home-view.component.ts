@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {LoginView} from '../view/login-view.component';
 import {LoginService} from '../service/login-service';
 import {MdSpinner} from '@angular2-material/progress-circle';
@@ -31,6 +31,7 @@ export class HomeView {
     constructor(private window: Window,
                 private loginService: LoginService,
                 private router: Router,
+                private route: ActivatedRoute,
                 private buildService : BuildService,
                 private queryService : QueryService,
                 private userService: UserService) {
