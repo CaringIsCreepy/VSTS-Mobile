@@ -43,4 +43,23 @@ export class WorkItemService {
 
         return subject.asObservable();
     }
+
+    getItem(id: number): Observable<WorkItem> {
+        let subject = new Subject<WorkItem>();
+        let server = this.window.localStorage.getItem('server');
+        let teamProject = this.window.localStorage.getItem('project_name');
+        let workItemUrl = server + "/DefaultCollection/" + teamProject + "/_apis/wit/workitems/" + id + "?api-version=1.0";
+
+        this.oAuthHttp.get(workItemUrl).subscribe(res => {
+            let result = res.json();
+
+            let workItem = new WorkItem();
+
+            workItem.populate(result.value);
+
+            subject.next(workItem);
+        });
+
+        return subject.asObservable();
+    }
 }
