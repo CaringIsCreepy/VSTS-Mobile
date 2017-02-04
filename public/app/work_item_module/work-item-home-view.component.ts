@@ -8,12 +8,7 @@ import {WorkItemService} from '../service/work-item-service';
 @Component({
     selector: "workItemHomeView",
     templateUrl: "/app/work_item_module/work-item-home-view.html",
-    providers: [
-        LoginService,
-        OAuthHttp,
-        Settings,
-        { provide: Window, useValue: window }
-    ]
+    providers: [WorkItemService, LoginService, OAuthHttp, Settings, { provide: Window, useValue: window }]
 })
 export class WorkItemHomeView {
     @Input() workItemId: string;
@@ -24,7 +19,9 @@ export class WorkItemHomeView {
 
     onKey(event:any) {
         if (event.key === "Enter") {
-            this.workItemService.getItem(<number>new Number(this.workItemId))
+            this.workItemService.getItem(+this.workItemId).subscribe(workItem => {
+                
+            })
         }
     }
 }
