@@ -3,6 +3,8 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var nconf = require('nconf');
 var methodOverride = require('method-override');
+var http = require('http');
+var https = require('https');
 var port = process.env.port || 80;
 
 var app = new express();
@@ -67,6 +69,14 @@ app.post('/refreshAuthToken', function(req, res) {
     });
 });
 
-app.listen(port, function() {
+// app.listen(port, function() {
     
-});
+// });
+
+var credentials = {key: "", cert: ""};
+
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(80);
+httpsServer.listen(443);

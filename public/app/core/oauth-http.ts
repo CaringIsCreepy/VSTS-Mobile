@@ -27,11 +27,14 @@ export class OAuthHttp {
       var expirationDate = this.window.localStorage.getItem('expiration_date');
 
       if (new Date(expirationDate) <= new Date()) {
+        this.isProcessing = true;
         this.refreshToken(url, subject, () => {
           this.getAttempt(url, true).subscribe(res2 => {
+            this.isProcessing = true;
             subject.next(res2);
             this.clearMessageQueue();
           }, error => {
+            this.isProcessing = true;
             subject.error(error);
             this.clearMessageQueue();
           });
