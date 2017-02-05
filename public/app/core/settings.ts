@@ -9,12 +9,12 @@ export class Settings {
     return this.oauthUrl;
   }
 
-  private applicationUrl: string = "http://127.0.0.1:80/";
+  private applicationUrl: string = "https://192.168.86.105/";
   get ApplicationUrl():string {
     return this.applicationUrl;
   }
 
-  private redirectBaseUrl: string = "http://192.168.86.105/";
+  private redirectBaseUrl: string = "https://192.168.86.105/";
   get RedirectBaseUrl():string {
     return this.redirectBaseUrl;
   }
