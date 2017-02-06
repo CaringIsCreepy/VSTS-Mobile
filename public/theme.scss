@@ -8,8 +8,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$candy-app-primary: md-palette($md-green);
-$candy-app-accent:  md-palette($md-pink, A200, A100, A400);
+$candy-app-primary: md-palette($md-cyan, A400);
+$candy-app-accent:  md-palette($md-purple, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $candy-app-warn:    md-palette($md-red);
