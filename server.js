@@ -50,8 +50,6 @@ app.post('/authToken', function(req, res) {
     };
     
     request.post({url:url, formData: postData}, function (error, response, body) {
-        console.log(body);
-        console.log(error);
         res.send(body);
     });
 });
