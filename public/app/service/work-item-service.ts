@@ -58,6 +58,8 @@ export class WorkItemService {
             workItem.populate(result);
 
             subject.next(workItem);
+        }, error => {
+            subject.error(error);
         });
 
         return subject.asObservable();

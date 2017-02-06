@@ -21,6 +21,10 @@ export class WorkItemHomeView {
         if (event.key === "Enter") {
             this.workItemService.getItem(+this.workItemId).subscribe(workItem => {
                 
+            }, error => {
+                if (error.status === 404) {
+                    alert("Work Item not found");
+                }
             })
         }
     }
