@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { WorkItemHomeView } from './work-item-home-view.component';
 import { Routes, RouterModule } from '@angular/router';
-import { MdInputModule } from '@angular2-material/input';
+import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     FormsModule,
-    MdInputModule.forRoot()
+    MaterialModule.forRoot()
   ],
   bootstrap: [WorkItemHomeView]
 })

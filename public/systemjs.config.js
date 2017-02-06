@@ -4,36 +4,10 @@
     '@angular': 'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs': 'node_modules/rxjs',
-    '@angular2-material/core': 'node_modules/@angular2-material/core/'
+    '@angular/material': 'node_modules/@angular/material/bundles/material.umd.js'
   };
-  const components = [
-    'all',
-    'button',
-    'card',
-    'checkbox',
-    'dialog',
-    'grid-list',
-    'icon',
-    'input',
-    'list',
-    'menu',
-    'progress-bar',
-    'progress-circle',
-    'radio',
-    'sidenav',
-    'slider',
-    'slide-toggle',
-    'button-toggle',
-    'tabs',
-    'toolbar',
-    'tooltip',
-  ];
 
   const packages = {
-    '@angular2-material/core': {
-      format: 'cjs',
-      main: 'core.umd.js'
-    },
     'app': { main: 'main.js', defaultExtension: 'js' },
     'rxjs': { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
@@ -41,14 +15,6 @@
       defaultExtension: 'js'
     }
   };
-  components.forEach(name => {
-    packages[`@angular2-material/${name}`] = {
-      format: 'cjs',
-      main: `${name}.umd.js`,
-      //defaultExtension: '.umd.js'
-    };
-    map[`@angular2-material/${name}`] = `/node_modules/@angular2-material/${name}`;
-  });
 
   var ngPackageNames = [
     'common',

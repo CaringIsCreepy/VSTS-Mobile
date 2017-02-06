@@ -11,8 +11,6 @@ import {QueryTile} from '../tile/query-tile.component';
 import {BuildService} from '../service/build-service';
 import {QueryService} from '../service/query-service';
 import {WorkItemService} from '../service/work-item-service';
-import {MdSpinner} from '@angular2-material/progress-circle';
-import {MdButton} from '@angular2-material/button';
 import {User} from '../business_object/user';
 import {DashboardList} from '../business_object/dashboard-list';
 import {DashboardService} from '../service/dashboard-service';

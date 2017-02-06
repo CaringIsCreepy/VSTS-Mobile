@@ -7,8 +7,6 @@ import {UserService} from '../service/user-service';
 import {TeamProject} from '../business_object/team-project';
 import {TeamProjectList} from '../business_object/team-project-list';
 import {TeamProjectService} from '../service/team-project-service';
-import {MdButton} from '@angular2-material/button';
-import {MdSpinner} from '@angular2-material/progress-circle';
 
 @Component({
   selector: 'login',

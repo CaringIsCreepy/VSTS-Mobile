@@ -34,13 +34,14 @@
     "karma": "^1.1.2",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^1.0.1",
+    "karma-htmlfile-reporter": "^0.2.2",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-requirejs": "^1.0.0",
+    "node-sass": "^4.5.0",
     "phantomjs": "^2.1.7",
     "tslint": "^3.9.0",
-    "typescript": "^2.0.2",
-    "karma-htmlfile-reporter": "^0.2.2"
+    "typescript": "^2.0.2"
   },
   "repository": {
     "type": "git",
