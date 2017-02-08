@@ -13,3 +13,13 @@ body.background {
 .menu-icon {
     font-size:24px;
 }
+.menu {
+    background-color: #180026;
+    color: #e8dfed;
+}
+.menu-item {
+    padding-top:10px;
+}
+.selected {
+    background-color: #25003b;
+}

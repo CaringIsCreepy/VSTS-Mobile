@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { LoginService } from '../service/login-service';
 import { Settings } from '../core/settings';
@@ -10,13 +10,18 @@ import { WorkItemService } from '../service/work-item-service';
     templateUrl: "/app/work_item_module/work-item-home-view.html",
     providers: [WorkItemService, LoginService, OAuthHttp, Settings, { provide: Window, useValue: window }]
 })
-export class WorkItemHomeView {
+export class WorkItemHomeView implements OnInit {
     @Input() workItemId: string;
     workItemError: string = "";
     searchDisabled: boolean = false;
+    workItemView: number;
 
     constructor(private workItemService: WorkItemService) {
 
+    }
+
+    ngOnInit() {
+        this.workItemView = 1;
     }
 
     onKey(event:any) {
@@ -27,9 +32,9 @@ export class WorkItemHomeView {
             }, error => {
                 this.searchDisabled = false;
                 if (error.status === 404) {
-                    this.workItemError = "Work item " + this.workItemId + " not found"
+                    this.workItemError = `Work item ${this.workItemId} not found`
                 }
-            })
+            });
         }
         else {
             this.workItemError = "";

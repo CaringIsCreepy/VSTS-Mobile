@@ -30,11 +30,11 @@ export class OAuthHttp {
         this.isProcessing = true;
         this.refreshToken(url, subject, () => {
           this.getAttempt(url, true).subscribe(res2 => {
-            this.isProcessing = true;
+            this.isProcessing = false;
             subject.next(res2);
             this.clearMessageQueue();
           }, error => {
-            this.isProcessing = true;
+            this.isProcessing = false;
             subject.error(error);
             this.clearMessageQueue();
           });
