@@ -1,9 +1,9 @@
-import {Component, Input} from '@angular/core';
-import {Router} from '@angular/router';
-import {LoginService} from '../service/login-service';
-import {Settings} from '../core/settings';
-import {OAuthHttp} from '../core/oauth-http';
-import {WorkItemService} from '../service/work-item-service';
+import { Component, Input } from '@angular/core';
+import { Router} from '@angular/router';
+import { LoginService } from '../service/login-service';
+import { Settings } from '../core/settings';
+import { OAuthHttp } from '../core/oauth-http';
+import { WorkItemService } from '../service/work-item-service';
 
 @Component({
     selector: "workItemHomeView",
@@ -12,6 +12,8 @@ import {WorkItemService} from '../service/work-item-service';
 })
 export class WorkItemHomeView {
     @Input() workItemId: string;
+    workItemError: string = "";
+    searchDisabled: boolean = false;
 
     constructor(private workItemService: WorkItemService) {
 
@@ -19,13 +21,18 @@ export class WorkItemHomeView {
 
     onKey(event:any) {
         if (event.key === "Enter") {
+            this.searchDisabled = true;
             this.workItemService.getItem(+this.workItemId).subscribe(workItem => {
-                
+                this.searchDisabled = false;
             }, error => {
+                this.searchDisabled = false;
                 if (error.status === 404) {
-                    alert("Work Item not found");
+                    this.workItemError = "Work item " + this.workItemId + " not found"
                 }
             })
+        }
+        else {
+            this.workItemError = "";
         }
     }
 }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { WorkItemHomeView } from './work-item-home-view.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
@@ -14,6 +15,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [WorkItemHomeView],
   imports: [
+    BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
     MaterialModule.forRoot()

@@ -1,4 +1,7 @@
 <div class="col-xs-12">
-    <md-input placeholder="WORK ITEM ID" style="width:100%;" (keyup)="onKey($event)" ng-default-control [(ngModel)]="workItemId">
+    <md-input placeholder="WORK ITEM ID" style="width:100%;" (keyup)="onKey($event)" ng-default-control [(ngModel)]="workItemId" ng-disabled="true"  [class.disabled]="searchDisabled ? true : null">
     </md-input>
+    <div *ngIf="workItemError !== ''" class="alert alert-danger">
+        {{workItemError}}
+    </div>
 </div>
