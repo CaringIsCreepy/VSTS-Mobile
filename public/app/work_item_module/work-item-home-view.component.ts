@@ -4,6 +4,7 @@ import { LoginService } from '../service/login-service';
 import { Settings } from '../core/settings';
 import { OAuthHttp } from '../core/oauth-http';
 import { WorkItemService } from '../service/work-item-service';
+import { NavigateTile } from '../tile/navigate-tile.component';
 
 @Component({
     selector: "workItemHomeView",

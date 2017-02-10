@@ -116,6 +116,8 @@ export class OAuthHttp {
           break;
       }
     });
+
+    this.messageQueue = [];
   }
 
   private postAttempt(url: string, postData: any, reattempt: boolean): Observable<Response> {

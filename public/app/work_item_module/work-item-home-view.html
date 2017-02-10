@@ -1,13 +1,15 @@
 <div class="col-xs-12 col-sm-3 col-sm-offset-9">
     <md-input placeholder="WORK ITEM ID" style="width:100%;" (keyup)="onKey($event)" ng-default-control [(ngModel)]="workItemId" ng-disabled="true"  [class.disabled]="searchDisabled ? true : null">
+        <md-hint *ngIf="workItemError !== ''" [ngStyle]="warn" class="has-error">{{workItemError}}</md-hint>
     </md-input>
-    <div *ngIf="workItemError !== ''" class="alert alert-danger">
-        {{workItemError}}
-    </div>
 </div>
 <md-tab-group style="width:100%;" md-stretch-tabs>
     <md-tab label="Backlogs">
-        <p>...</p>
+        <div class="col-xs-12" style="padding-top:5px;">
+            <navigate-tile>Epics</navigate-tile>
+            <navigate-tile>Features</navigate-tile>
+            <navigate-tile>User Stories</navigate-tile>
+        </div>
     </md-tab>
     <md-tab label="Queries">
         <p>...</p>

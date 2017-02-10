@@ -9,6 +9,8 @@ body.background {
     margin-bottom: 10px;
     padding: 15px;
     color: #b591c9;
+    color: white;
+    vertical-align: middle;
 }
 .menu-icon {
     font-size:24px;
@@ -19,7 +21,11 @@ body.background {
 }
 .menu-item {
     padding-top:10px;
+    padding-bottom:10px;
 }
 .selected {
     background-color: #25003b;
+}
+.has-error {
+    color: #F44336;
 }

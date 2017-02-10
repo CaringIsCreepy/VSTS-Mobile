@@ -4,6 +4,7 @@ import { WorkItemHomeView } from './work-item-home-view.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { NavigateTile } from '../tile/navigate-tile.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [WorkItemHomeView],
+  declarations: [WorkItemHomeView, NavigateTile],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
