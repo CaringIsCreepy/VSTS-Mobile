@@ -23,4 +23,4 @@ const routes: Routes = [
   ],
   bootstrap: [WorkItemHomeView]
 })
-export class WorkItemModule { }
+export class WorkItemModule {}
