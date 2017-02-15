@@ -9,9 +9,11 @@
             <navigate-tile>Epics</navigate-tile>
             <navigate-tile>Features</navigate-tile>
             <navigate-tile>User Stories</navigate-tile>
+        </div>
+        <div class="col-xs-12">
             <h4>ITERATIONS</h4>
             <div *ngIf="!showLoading">
-                <div *ngFor="let iteration of iterationList" class="tile" [routerLink]="['/home']">
+                <div *ngFor="let iteration of iterationList" class="tile col-sm-6" [routerLink]="['/home']">
                     <div style="float:right; color:#00f2ff; margin-top:10px;"><span class="glyphicon glyphicon-chevron-right" style="font-size:25px;"></span></div>
                     <div style="font-size:18px; color:white;">{{iteration.name}}</div>
                     <div>{{iteration.description}}</div>
