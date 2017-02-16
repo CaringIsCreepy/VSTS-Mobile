@@ -34,4 +34,22 @@ export class IterationService {
 
         return subject.asObservable();
     }
+
+    getById(id: string) : Observable<Iteration> {
+        let subject = new Subject<Iteration>();
+        let returnValue = new Iteration();
+        let server = this.window.localStorage.getItem('server');
+        let teamProjectName = this.window.localStorage.getItem('project_name');
+        let url = server + `/DefaultCollection/${teamProjectName}/_apis/work/teamsettings/iterations/${id}?api-version=v2.0-preview`;
+
+        this.oAuthHttp.get(url).subscribe(res => {
+            let iterationJson = res.json();
+
+            returnValue.populate(iterationJson);
+            
+            subject.next(returnValue);
+        });
+
+        return subject.asObservable();
+    }
 }

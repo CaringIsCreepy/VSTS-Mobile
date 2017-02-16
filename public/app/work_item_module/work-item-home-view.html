@@ -11,12 +11,20 @@
             <navigate-tile>User Stories</navigate-tile>
         </div>
         <div class="col-xs-12">
-            <h4>ITERATIONS</h4>
-            <div *ngIf="!showLoading">
-                <div *ngFor="let iteration of iterationList" class="tile col-sm-6" [routerLink]="['/home']">
-                    <div style="float:right; color:#00f2ff; margin-top:10px;"><span class="glyphicon glyphicon-chevron-right" style="font-size:25px;"></span></div>
-                    <div style="font-size:18px; color:white;">{{iteration.name}}</div>
-                    <div>{{iteration.description}}</div>
+            <div *ngIf="!showLoading && currentIteration != null">
+                <h5>CURRENT ITERATION</h5>
+                <navigate-tile [routerLink]="['/iteration', currentIteration.id]">{{currentIteration.name}}</navigate-tile>
+            </div>
+            <div *ngIf="!showLoading && futureIterationList.length > 0">
+                <h5>FUTURE ITERATIONS</h5>
+                <div *ngFor="let futureIteration of futureIterationList" c>
+                    <navigate-tile [routerLink]="['/iteration', futureIteration.id]">{{futureIteration.name}}</navigate-tile>
+                </div>
+            </div>
+            <div *ngIf="!showLoading && pastIterationList.length > 0">
+                <h5>PAST ITERATIONS</h5>
+                <div *ngFor="let pastIteration of pastIterationList" c>
+                    <navigate-tile [routerLink]="['/iteration', pastIteration.id]">{{pastIteration.name}}</navigate-tile>
                 </div>
             </div>
             <div style="margin-left:auto; margin-right:auto; width:150px;" *ngIf="showLoading">
