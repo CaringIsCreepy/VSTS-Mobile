@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import {OAuthHttp} from '../core/oauth-http';
 import {Query} from '../business_object/query';
@@ -56,8 +57,8 @@ export class WorkItemService {
     }
 
     getWorkItemList(idList: Array<number>) : Observable<WorkItemList> {
-        let subject = new Subject<WorkItemList>();
         let returnValue = new WorkItemList();
+        let subject = new BehaviorSubject<WorkItemList>(returnValue);
 
         if (idList.length > 0) {
             let server = this.window.localStorage.getItem('server');
@@ -75,9 +76,6 @@ export class WorkItemService {
 
                 subject.next(returnValue);
             });
-        }
-        else {
-            subject.next(returnValue);
         }
 
         return subject.asObservable();
