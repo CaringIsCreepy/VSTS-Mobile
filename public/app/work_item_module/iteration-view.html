@@ -1,1 +1,11 @@
-{{iteration.name}}
+<div class="col-xs-12">
+    <h5>{{iteration.name}}</h5>
+    <div *ngIf="!showLoading && workItemList.length > 0">
+        <div *ngFor="let workItem of workItemList" c>
+            <navigate-tile [routerLink]="['/workItem', workItem.id]">{{workItem.title}}</navigate-tile>
+        </div>
+    </div>
+    <div style="margin-left:auto; margin-right:auto; width:150px;" *ngIf="showLoading">
+        <md-spinner class="app-spinner"></md-spinner>
+    </div>
+</div>

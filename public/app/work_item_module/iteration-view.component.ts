@@ -15,6 +15,7 @@ import { OAuthHttp } from '../core/oauth-http';
 export class IterationView implements OnInit {
     iteration: Iteration = new Iteration();
     workItemList: WorkItemList;
+    showLoading: boolean = true;
 
     constructor(private route: ActivatedRoute,
                 private iterationService: IterationService,
@@ -32,6 +33,7 @@ export class IterationView implements OnInit {
 
             this.workItemService.getListFromWIQL(wiql).subscribe(workItemList => {
                 this.workItemList = workItemList;
+                this.showLoading = false;
             });
         });
     }

@@ -12,32 +12,21 @@ export class WorkItemService {
                 private oAuthHttp: OAuthHttp){}
 
     getList(query: Query): Observable<WorkItemList> {
-        var subject = new Subject<WorkItemList>();
-        var returnValue = new WorkItemList();
-        var server = this.window.localStorage.getItem('server');
+        let subject = new Subject<WorkItemList>();
+        let server = this.window.localStorage.getItem('server');
         let teamProject = this.window.localStorage.getItem('project_name');
         let queryUrl = server + '/DefaultCollection/' + teamProject + '/_apis/wit/wiql/' + query.id + '?api-version=1.0';
 
         this.oAuthHttp.get(queryUrl).subscribe(res => {
-            var result = res.json();
-            var idList = new Array<number>();
+            let result = res.json();
+            let idList = new Array<number>();
 
             result.workItems.forEach(workItemJson => {
                 idList.push(workItemJson.id);
             });
 
-            let workItemUrl = server + '/DefaultCollection/_apis/wit/WorkItems?ids=' + idList.join() + '&fields=System.Id,System.WorkItemType,System.Title,System.AssignedTo,System.State&api-version=1.0';
-
-            this.oAuthHttp.get(workItemUrl).subscribe(res => {
-                var result = res.json();
-
-                result.value.forEach(workItemJson => {
-                    var workItem = new WorkItem();
-                    workItem.populate(workItemJson);
-                    returnValue.push(workItem);
-                });
-
-                subject.next(returnValue);
+            this.getWorkItemList(idList).subscribe((list) => {
+                subject.next(list);
             });
         });
 
@@ -45,34 +34,51 @@ export class WorkItemService {
     }
 
     getListFromWIQL(wiql: string): Observable<WorkItemList> {
-        var subject = new Subject<WorkItemList>();
-        var returnValue = new WorkItemList();
-        var server = this.window.localStorage.getItem('server');
+        let subject = new Subject<WorkItemList>();
+        let server = this.window.localStorage.getItem('server');
         let teamProject = this.window.localStorage.getItem('project_name');
         let queryUrl = server + '/DefaultCollection/' + teamProject + '/_apis/wit/wiql?api-version=1.0';
 
         this.oAuthHttp.post(queryUrl, {query: wiql}).subscribe(res => {
-            var result = res.json();
-            var idList = new Array<number>();
+            let result = res.json();
+            let idList = new Array<number>();
 
             result.workItems.forEach(workItemJson => {
                 idList.push(workItemJson.id);
             });
 
+            this.getWorkItemList(idList).subscribe((list) => {
+                subject.next(list);
+            });
+        });
+
+        return subject.asObservable();
+    }
+
+    getWorkItemList(idList: Array<number>) : Observable<WorkItemList> {
+        let subject = new Subject<WorkItemList>();
+        let returnValue = new WorkItemList();
+
+        if (idList.length > 0) {
+            let server = this.window.localStorage.getItem('server');
+            
             let workItemUrl = server + '/DefaultCollection/_apis/wit/WorkItems?ids=' + idList.join() + '&fields=System.Id,System.WorkItemType,System.Title,System.AssignedTo,System.State&api-version=1.0';
 
             this.oAuthHttp.get(workItemUrl).subscribe(res => {
-                var result = res.json();
+                let result = res.json();
 
                 result.value.forEach(workItemJson => {
-                    var workItem = new WorkItem();
+                    let workItem = new WorkItem();
                     workItem.populate(workItemJson);
                     returnValue.push(workItem);
                 });
 
                 subject.next(returnValue);
             });
-        });
+        }
+        else {
+            subject.next(returnValue);
+        }
 
         return subject.asObservable();
     }
