@@ -32,8 +32,10 @@ export class IterationView implements OnInit {
             let wiql = `Select [State], [Title] From WorkItems Where [System.IterationPath] = '${this.iteration.path}'`;
 
             this.workItemService.getListFromWIQL(wiql).subscribe(workItemList => {
-                this.workItemList = workItemList;
-                this.showLoading = false;
+                if (workItemList !== null) {
+                    this.workItemList = workItemList;
+                    this.showLoading = false;
+                }
             });
         });
     }

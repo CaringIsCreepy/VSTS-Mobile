@@ -58,7 +58,7 @@ export class WorkItemService {
 
     getWorkItemList(idList: Array<number>) : Observable<WorkItemList> {
         let returnValue = new WorkItemList();
-        let subject = new BehaviorSubject<WorkItemList>(returnValue);
+        let subject = new BehaviorSubject<WorkItemList>(null);
 
         if (idList.length > 0) {
             let server = this.window.localStorage.getItem('server');
@@ -76,6 +76,9 @@ export class WorkItemService {
 
                 subject.next(returnValue);
             });
+        }
+        else {
+            subject.next(returnValue);
         }
 
         return subject.asObservable();

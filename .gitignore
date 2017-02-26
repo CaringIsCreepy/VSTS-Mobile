@@ -11,3 +11,6 @@ public/build
 public/css
 .tscache
 typings/
+key.pem
+server.crt
+server.csr
