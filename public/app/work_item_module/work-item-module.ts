@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { WorkItemHomeView } from './work-item-home-view.component';
 import { IterationView } from './iteration-view.component';
+import { WorkItemView } from './work-item-view.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
@@ -15,11 +16,15 @@ const routes: Routes = [
   {
     path: 'iteration/:id',
     component: IterationView
+  },
+  {
+    path: 'workItem/:id',
+    component: WorkItemView
   }
 ];
 
 @NgModule({
-  declarations: [WorkItemHomeView, IterationView, NavigateTile],
+  declarations: [WorkItemHomeView, IterationView, NavigateTile, WorkItemView],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),

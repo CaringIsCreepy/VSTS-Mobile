@@ -1,0 +1,8 @@
+<div class="col-xs-12">
+    <div *ngIf="!showLoading">
+        <h5>{{workItem.title}}</h5>
+    </div>
+    <div style="margin-left:auto; margin-right:auto; width:150px;" *ngIf="showLoading">
+        <md-spinner class="app-spinner"></md-spinner>
+    </div>
+</div>
