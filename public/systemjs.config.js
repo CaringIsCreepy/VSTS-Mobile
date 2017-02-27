@@ -1,15 +1,17 @@
 (function (global) {
   var map = {
-    'app': 'app', // 'dist',
+    'app': 'app', 
     '@angular': 'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs': 'node_modules/rxjs',
+    'moment': 'node_modules/moment',
     '@angular/material': 'node_modules/@angular/material/bundles/material.umd.js'
   };
 
   const packages = {
     'app': { main: 'main.js', defaultExtension: 'js' },
     'rxjs': { defaultExtension: 'js' },
+    'moment': { main: 'moment.js', defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
     '.': {
       defaultExtension: 'js'
