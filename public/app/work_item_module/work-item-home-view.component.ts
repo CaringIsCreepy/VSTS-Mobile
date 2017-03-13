@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService } from '../service/login-service';
 import { Settings } from '../core/settings';
 import { OAuthHttp } from '../core/oauth-http';
@@ -24,7 +24,8 @@ export class WorkItemHomeView implements OnInit {
     showLoading: boolean;
 
     constructor(private workItemService: WorkItemService,
-                private iterationService: IterationService) {
+                private iterationService: IterationService,
+                private router: Router) {
         this.showLoading = true;
         this.iterationService.getList().subscribe(list => {
             list.forEach(iteration => {
@@ -51,6 +52,8 @@ export class WorkItemHomeView implements OnInit {
             this.searchDisabled = true;
             this.workItemService.getItem(+this.workItemId).subscribe(workItem => {
                 this.searchDisabled = false;
+
+                this.router.navigate(['workItem', this.workItemId]);
             }, error => {
                 this.searchDisabled = false;
                 if (error.status === 404) {

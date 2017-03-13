@@ -3,7 +3,6 @@
         <div class="sub-title" style="font-weight:400; font-size:12px;">{{workItem.type.toUpperCase()}} ID: {{workItem.id}}</div>
         <div style="font-size:20px;">{{workItem.title}}</div>
         <div class="sub-title">Updated {{changedDateString}} by {{changedByString}}</div>
-        
     </div>
     <div style="margin-left:auto; margin-right:auto; width:150px;" *ngIf="showLoading">
         <md-spinner class="app-spinner"></md-spinner>
@@ -11,6 +10,9 @@
 </div>
 <md-tab-group style="width:100%;" *ngIf="!showLoading" md-stretch-tabs>
     <md-tab label="DETAILS">
+        <div class="col-xs-12">
+            <div>State: {{workItem.state}}</div>
+        </div>
     </md-tab>
     <md-tab label="HISTORY">
     </md-tab>
